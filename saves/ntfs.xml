@@ -1,0 +1,125 @@
+<F name='/'>
+    <F name='Base de donnee'>
+        <F name='Bicolline'>
+            <F name='Base de donnee'>
+                <N name='BicollineBD.accdb'>
+                
+                </N>
+
+            </F>
+
+            <N name='Bicolline.accdb'>
+            
+            </N>
+
+        </F>
+
+        <F name='VBA'>
+            <N name='FrameMain.bas'>
+            //Juste un fichier en VBA
+            </N>
+
+        </F>
+
+    </F>
+
+    <F name='Programmation I'>
+        <F name='Java'>
+            <F name='JSwing'>
+                <N name='Something.java'>
+                
+                </N>
+
+            </F>
+
+            <F name='Java CLI'>
+                <N name='Nombre mystere.java'>
+                
+                </N>
+
+            </F>
+
+        </F>
+
+    </F>
+
+    <F name='Programmation II'>
+        <F name='Algorithmes'>
+            <N name='BinarySearch'>
+            
+            </N>
+
+            <N name='QuickSort.java'>
+            
+            </N>
+
+        </F>
+
+        <F name='More JSwing'>
+        </F>
+
+        <F name='TP1'>
+            <N name='Utils.java'>
+            
+            </N>
+
+            <N name='main.java'>
+            
+            </N>
+
+        </F>
+
+        <F name='TP2'>
+            <N name='main.java'>
+            
+            </N>
+
+        </F>
+
+        <F name='TP3'>
+        </F>
+
+    </F>
+
+    <F name='Programmation III'>
+        <F name='Assembleur'>
+        </F>
+
+        <F name='Atelier 1'>
+        </F>
+
+        <F name='Atelier 2'>
+        </F>
+
+        <F name='Atelier 3'>
+        </F>
+
+        <F name='C'>
+        </F>
+
+        <F name='C++'>
+        </F>
+
+        <F name='Structure de donnees'>
+            <N name='BSTree.hpp'>
+            
+            </N>
+
+            <N name='Deque.hpp'>
+            
+            </N>
+
+            <N name='Queue.hpp'>
+            
+            </N>
+
+            <N name='Stack.hpp'>
+            
+            </N>
+
+        </F>
+
+    </F>
+
+</F>
+

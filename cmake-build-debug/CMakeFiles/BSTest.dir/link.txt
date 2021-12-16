@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\BSTest.dir/objects.a
+C:\msys64\mingw64\bin\ar.exe cr CMakeFiles\BSTest.dir/objects.a @CMakeFiles\BSTest.dir\objects1.rsp
+C:\msys64\mingw64\bin\g++.exe  -std=c++17 -g -Wl,--whole-archive CMakeFiles\BSTest.dir/objects.a -Wl,--no-whole-archive -o BSTest.exe -Wl,--out-implib,libBSTest.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BSTest.dir\linklibs.rsp

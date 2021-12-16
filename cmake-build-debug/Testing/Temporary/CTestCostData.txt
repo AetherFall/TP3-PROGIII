@@ -1,0 +1,31 @@
+Tester 0 0
+tester 0 0
+420C35JOTP3 0 0
+TryingToTest 11 0.00685462
+AnotherTest 2 0.00926585
+Unique_Leaf_ROOT 96 0
+Unique_Leaf_LEFT 90 0.000340839
+Unique_Leaf_RIGHT 94 0.000198139
+One_Branch_G_ROOT 86 0.000186883
+One_Branch_G_LEFT 89 0.000124008
+One_Branch_G_RIGHT 87 0.000208977
+One_Branch_D_ROOT 87 0.000206162
+One_Branch_D_LEFT 92 0.000252355
+One_Branch_D_RIGHT 91 0.000250367
+Double_Branch_ROOT 83 0
+Double_Branch_LEFT 77 0
+Double_Branch_RIGHT 85 0
+Cas_Particulier_1 67 0.000450397
+Cas_Particulier_2 58 0.000330886
+BreathFirst 44 0.000661309
+test 4 0.0036471
+AjoutDoublons 34 0.000722153
+RechercheClassique 30 0.000904773
+RechercheElemSupp 22 0.00201256
+RechercheElemPointeParElemSupp 24 0.00192643
+ErreurFrequente 9 0.00383056
+---
+Unique_Leaf_ROOT
+Double_Branch_ROOT
+Double_Branch_LEFT
+Double_Branch_RIGHT
