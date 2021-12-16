@@ -61,7 +61,6 @@ public:
     void createFolder(string folder)             { folders.push_back(new Folder(folder)); }
 
     void createFile(string file)                 { notes.push_back(new Note(file));}
-    void createFile(string file, string content) { notes.push_back(new Note(file, content)); }
 
     //Suppression
     void removeNoteAt(int i)   { delete this->notes.at(i); }

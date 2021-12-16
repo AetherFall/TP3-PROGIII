@@ -220,8 +220,8 @@ void onMenuClick(const unsigned int& menuItem) {
                 //Suppression des éléments sélectionné.
                 for(i = 0; i < sizeTraversal; i++) {
                     (reverseTraversal->top() >= path->top()->getFolderSize()) ?
-                                    path->top()->removeNoteAt(reverseTraversal->top() - path->top()->getFolderSize()) :
-                                    path->top()->removeFolderAt(reverseTraversal->top());
+                    path->top()->removeNoteAt(reverseTraversal->top() - path->top()->getFolderSize()) :
+                    path->top()->removeFolderAt(reverseTraversal->top());
 
                     reverseTraversal->pop();
                 }
