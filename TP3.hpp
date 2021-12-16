@@ -142,7 +142,9 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
                     if (index < 0) {
                         title.erase(title.end() - path->top()->getName().size() - 1, title.end());
                         path->pop();
-                    } else {
+                    }
+
+                    else {
                         path->push(path->top()->getFolderAt(index));
                         title = title + path->top()->getName() + "/";
                     }
@@ -158,11 +160,8 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
     }
 
     else {
-        if (index != -1 && index < path->top()->getAllSize() && selections->size() != path->top()->getAllSize()) {
-            if(!ctrl)
-                selections->removeAll();
+        if (index != -1 && index < path->top()->getAllSize() && selections->size() != path->top()->getAllSize())
             selections->add(index);
-        }
 
         switch(selections->size()) {
             case 0: Window::showMenu(x, y, SELECT_ALL | NEW_NOTE | NEW_FOLDER); break;
@@ -172,7 +171,7 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
         //Si nous somme sur une note
         if(selections->size() == 1 && index > path->top()->getFolderSize() && index < path->top()->getAllSize())
-            Window::showMenu(x,y, SELECT_ALL | NEW_NOTE | NEW_FOLDER | RENAME | DELETE | ENCODE ); //TODO Ajouter l'encodage
+            Window::showMenu(x,y, SELECT_ALL | NEW_NOTE | NEW_FOLDER | RENAME | DELETE /*| ENCODE | DECODAGE*/ ); //TODO Ajouter l'encodage et le decodage
 
         //TODO Gérer les fichier compressé
     }
@@ -207,7 +206,27 @@ void onMenuClick(const unsigned int& menuItem) {
 
         case Menu::DELETE: // TODO : Supprimer le ou les dossiers, et tout ce qu'ils contiennent, et la ou les notes sélectionner
             if(selections->size()) {
-                queue<int>* traversal = selections->traversal(Traversal::Postfix);
+                queue<int>* traversal = selections->traversal(Traversal::Infix);
+                stack<int>* reverseTraversal = new stack<int>;
+                int sizeTraversal = traversal->size();
+                int i;
+
+                //Inversion de la queue pour qu'elle devienne décroissante.
+                for(i = 0; i < sizeTraversal; i++) {
+                    reverseTraversal->push(traversal->front());
+                    traversal->pop();
+                }
+
+                //Suppression des éléments sélectionné.
+                for(i = 0; i < sizeTraversal; i++) {
+                    (reverseTraversal->top() >= path->top()->getFolderSize()) ?
+                                    path->top()->removeNoteAt(reverseTraversal->top() - path->top()->getFolderSize()) :
+                                    path->top()->removeFolderAt(reverseTraversal->top());
+
+                    reverseTraversal->pop();
+                }
+
+                delete reverseTraversal;
             }
         break;
 

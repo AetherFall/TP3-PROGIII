@@ -54,16 +54,20 @@ public:
     Note* getLastNote()            { return this->notes.at(notes.size() -1); }
 
     //Setter
-    void setName(string name) { this->name = name; }
+    void setName(string name)                    { this->name = name; }
     void setNoteContentAt(string content, int i) { this->notes.at(i)->setContent(content); }
-    void setNoteNameAt(string name, int i) { this->notes.at(i)->setName(name); }
-    void setFolderNameAt(string name, int i) { this->folders.at(i)->setName(name); }
-    void createFolder(string folder) { folders.push_back(new Folder(folder)); }
+    void setNoteNameAt(string name, int i)       { this->notes.at(i)->setName(name); }
+    void setFolderNameAt(string name, int i)     { this->folders.at(i)->setName(name); }
+    void createFolder(string folder)             { folders.push_back(new Folder(folder)); }
 
-    void createFile(string file) { notes.push_back(new Note(file));}
+    void createFile(string file)                 { notes.push_back(new Note(file));}
     void createFile(string file, string content) { notes.push_back(new Note(file, content)); }
 
-    //Tri
+    //Suppression
+    void removeNoteAt(int i)   { delete this->notes.at(i); }
+    void removeFolderAt(int i) { delete this->folders.at(i); }
+
+    //Tri par QuickSort
     void sortFolders(long min, long max, FILETYPE type) {
         long g = min, d = max, p = min;
 
