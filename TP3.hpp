@@ -14,8 +14,6 @@
 
 #define pathFileSystem "..//saves//ntfs.xml"
 
-//TODO Verification : Selon le leaksReport3.txt --> Est-ce que les données en mémoire dit "Still reachable" sont considéré comme des fuites de mémoires?
-
 /**
     @author William-Benoit Lambert
     @code 1735971
