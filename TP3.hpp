@@ -56,8 +56,8 @@ string getNameBasedOnDoublons(string name, int val = 1){
         //Vérification existence de folder?
         if(path->top()->getFolderSize())
             if (path->top()->getFolderNameAt(i) == name) {
-                if (val > 1)
-                    name = Serialization::replace(name, "(" + to_string(val ) + ")", "");
+                if (val != 1)
+                    name = Serialization::replace(name, "(" + to_string(val -1) + ")", "");
 
                 return getNameBasedOnDoublons(name + "(" + to_string(val) + ")", val + 1);
             }
@@ -67,7 +67,7 @@ string getNameBasedOnDoublons(string name, int val = 1){
                 if (val != 1)
                     name = Serialization::replace(name, "(" + to_string(val -1) + ")", "");
 
-                return getNameBasedOnDoublons(name + "(" + to_string(val) + ")", val +1);
+                return getNameBasedOnDoublons(name + "(" + to_string(val) + ")", val + 1);
             }
     }
     return name;
