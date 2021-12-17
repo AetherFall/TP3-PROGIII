@@ -1,6 +1,5 @@
 #pragma once
 
-#include <utility>
 #include <vector>
 #include "Note.hpp"
 
@@ -13,7 +12,7 @@
 
 using namespace std;
 
-enum FILETYPE { DOSSIER, FICHIER, COMPRESSED };
+enum FILETYPE { DOSSIER, FICHIER, COMPRESSED, NONE };
 
 class Folder {
 private:

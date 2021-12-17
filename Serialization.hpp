@@ -1,5 +1,6 @@
 #ifndef INC_420C35JOTP3_SERIALIZATION_HPP
 #define INC_420C35JOTP3_SERIALIZATION_HPP
+#pragma once
 
 #include <fstream>
 #include <string>
@@ -27,7 +28,7 @@ class Serialization {
          * @param stream Flux stream du fichier en cours
          * @param level Niveau d'indentation du fichier
          */
-        void sauvegarder(Folder* fichier, std::ofstream& stream, string& level) {
+        void sauvegarder(Folder* fichier, std::ofstream& stream, string level) {
             stream << level << "<F name='" << fichier->getName() <<"'>" << endl;
             level += "    ";
 
@@ -113,6 +114,7 @@ class Serialization {
                 case 'N': return FICHIER;
                 case 'H': return COMPRESSED;
             }
+            return NONE;
         }
 
         static bool getEndFile(string line) {
@@ -140,13 +142,21 @@ class Serialization {
             this->path = new stack<Folder*>;
         }
 
-        ~Serialization() { delete path; }
+        Serialization(Folder* root) {
+            this->root = root;
+            this->path = new stack<Folder*>;
+        }
+
+        ~Serialization() {
+            delete root;
+            delete path;
+        }
 
         void sauvegarder(const string& filePath){
             ofstream fluxSauvegarde(filePath.c_str());
             if(fluxSauvegarde){
                 //Lecture de chaque fichier et de son contenu
-                sauvegarder(root, fluxSauvegarde, (string &) "");
+                sauvegarder(root, fluxSauvegarde,  "");
                 fluxSauvegarde.close();
             }
             else
