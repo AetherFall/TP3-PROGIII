@@ -31,19 +31,17 @@ string title;
 //AVLTree<int>* selections;
 
 /**
- * Fonction qui ajuste la taille des label appartenant aux fichiers en tout genre.
- * @param thisPath Endroit ou se trouve le label a verifier
- * @param index Emplacement precis ou se trouve le dit label
- * @param Type Quel type de fichier est-ce (FICHIER, DOSSIER, COMPRESSED)
- * @return retourne la longueur optimale en string pour le label
+ * Fonction qui ajuste la taille des label appartenant aux icons.
+ * @param name Label à vérifier
+ * @return Label + ... de la longueur optimale.
  */
-string getVerificationNameSize(int index, FILETYPE Type) {
-    if(Type == FILETYPE::DOSSIER)
-        return (Window::getStringWidth(path->top()->getFolderNameAt(index)) >= Window::getIconWidth()) ?
-               path->top()->getFolderNameAt(index).replace(12,path->top()->getFolderNameAt(index).size() -12,"...") : path->top()->getFolderNameAt(index);
-    else
-        return (Window::getStringWidth(path->top()->getNoteNameAt(index)) >= Window::getIconWidth()) ?
-               path->top()->getNoteNameAt(index).replace(12,path->top()->getNoteNameAt(index).size() -12,"...") : path->top()->getNoteNameAt(index);
+string getVerificationNameSize(string name, bool flag = false) {
+    if(Window::getStringWidth(name + "...  ") > Window::getIconWidth()){
+        name.erase(name.end() -1, name.end());
+        return getVerificationNameSize(name, true);
+    }
+
+    return (flag)? name + "..." : name + "";
 }
 
 /**
@@ -61,6 +59,7 @@ string getNameBasedOnDoublons(string name, int val = 1){
 
                 return getNameBasedOnDoublons(name + "(" + to_string(val) + ")", val + 1);
             }
+
         //Vérification existence Note?
         if(path->top()->getNoteSize())
             if(path->top()->getNoteNameAt(i  - path->top()->getFolderSize()) == name) {
@@ -80,7 +79,9 @@ string getNameBasedOnDoublons(string name, int val = 1){
  * @param y Position en Y du curseur
  * @return index de la position de la souris
  */
-int getIndex(const int& x, const int& y) { return (y /Window::getIconHeight()) * (Window::getWidth() / Window::getIconWidth()) + (x / Window::getIconWidth()); }
+int getIndex(const int& x, const int& y) {
+    return (y /Window::getIconHeight()) * (Window::getWidth() / Window::getIconWidth()) + (x / Window::getIconWidth());
+}
 
 /**
  * Initialisation de début de programme.
@@ -119,11 +120,10 @@ void onRefresh() {
             posX = 0;
         }
 
-        Window::drawIcon(Icon::FOLDER, posX, posY, selections->search(i));
-
         //Vérification si le nom dépasse l'icon du dossier
-        name = getVerificationNameSize(i, DOSSIER);
+        name = getVerificationNameSize(path->top()->getFolderNameAt(i));
 
+        Window::drawIcon(Icon::FOLDER, posX, posY, selections->search(i));
         Window::drawString(name, posX + ((Window::getIconWidth() -  Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
         posX += Window::getIconWidth();
     }
@@ -134,7 +134,9 @@ void onRefresh() {
             posY += Window::getIconHeight();
             posX = 0;
         }
-        name = getVerificationNameSize(i, FICHIER);
+
+        //Vérification si le nom dépasse l'icon du dossier
+        name = getVerificationNameSize(path->top()->getNoteNameAt(i));
 
         Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i + signed (path->top()->getFolderSize())));
         Window::drawString(name, posX + ((Window::getIconWidth() - Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
@@ -213,13 +215,21 @@ void onMenuClick(const unsigned int& menuItem) {
 
     switch (menuItem) {
         case Menu::NEW_FOLDER:
-            path->top()->createFolder(getNameBasedOnDoublons(Window::showTextField()));
-            path->top()->sortFolders(0, path->top()->getFolderSize() -1, FILETYPE::DOSSIER);
+            getName = getNameBasedOnDoublons(Window::showTextField());
+
+            if(!getName.empty()) {
+                path->top()->createFolder(getName);
+                path->top()->sortFolders(0, path->top()->getFolderSize() - 1, FILETYPE::DOSSIER);
+            }
             break;
 
         case Menu::NEW_NOTE:
-            path->top()->createFile(getNameBasedOnDoublons( Window::showTextField()));
-            path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FILETYPE::FICHIER);
+            getName = getNameBasedOnDoublons( Window::showTextField());
+
+            if(!getName.empty()) {
+                path->top()->createFile(getName);
+                path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FILETYPE::FICHIER);
+            }
             break;
 
         case Menu::RENAME:
