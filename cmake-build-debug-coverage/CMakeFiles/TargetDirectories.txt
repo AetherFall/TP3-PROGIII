@@ -1,5 +1,0 @@
-C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug-coverage/CMakeFiles/TP3.dir
-C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug-coverage/CMakeFiles/BSTest.dir
-C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
-C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug-coverage/CMakeFiles/test.dir
-C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir

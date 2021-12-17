@@ -14,17 +14,8 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-420C35JOTP3_BINARY_DIR:STATIC=C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-
-//Value Computed by CMake
-420C35JOTP3_SOURCE_DIR:STATIC=C:/Users/xterm/CLionProject/TP3CLWindows
-
 //Path to a library.
-420C35JO_TP3_LIBRARY:FILEPATH=C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/lib420C35JOTP3.a
-
-//Build the testing tree.
-BUILD_TESTING:BOOL=ON
+420C35JO_TP3_LIBRARY:FILEPATH=c:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/LIB420C35JOTP3.a
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/msys64/mingw64/bin/addr2line.exe
@@ -133,7 +124,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/420C35JOTP3
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/TP3
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/msys64/mingw64/bin/ld.exe
@@ -259,31 +250,6 @@ CMAKE_STRIP:FILEPATH=C:/msys64/mingw64/bin/strip.exe
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Path to the coverage program that CTest uses for performing coverage
-// inspection
-COVERAGE_COMMAND:FILEPATH=C:/msys64/mingw64/bin/gcov.exe
-
-//Extra command line flags to pass to the coverage tool
-COVERAGE_EXTRA_FLAGS:STRING=-l
-
-//How many times to retry timed-out CTest submissions.
-CTEST_SUBMIT_RETRY_COUNT:STRING=3
-
-//How long to wait between timed-out CTest submissions.
-CTEST_SUBMIT_RETRY_DELAY:STRING=5
-
-//Maximum time allowed before CTest will kill the test.
-DART_TESTING_TIMEOUT:STRING=1500
-
-//Command to build the project
-MAKECOMMAND:STRING=C:/Program\ Files/JetBrains/CLion\ 2021.2.2/bin/cmake/win/bin/cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}"
-
-//Path to the memory checking command, used for memory error detection.
-MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
-
-//File that contains suppressions for the memory checker
-MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
-
 //mwindows for MinGW
 MINGW32_LIBRARY:STRING=mingw32
 
@@ -314,20 +280,11 @@ SDL2_TTF_INCLUDE_DIR:PATH=C:/msys64/mingw64/include/SDL2
 //Path to a library.
 SDL2_TTF_LIBRARY:FILEPATH=C:/msys64/mingw64/lib/libSDL2_ttf.dll.a
 
-//Name of the computer/site where compile is being run
-SITE:STRING=Héphaïstos
-
 //Value Computed by CMake
 TP3_BINARY_DIR:STATIC=C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
 
 //Value Computed by CMake
 TP3_SOURCE_DIR:STATIC=C:/Users/xterm/CLionProject/TP3CLWindows
-
-//Value Computed by CMake
-t_BINARY_DIR:STATIC=C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-
-//Value Computed by CMake
-t_SOURCE_DIR:STATIC=C:/Users/xterm/CLionProject/TP3CLWindows
 
 
 ########################
@@ -500,33 +457,15 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: COVERAGE_COMMAND
-COVERAGE_COMMAND-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
-COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
-CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
-CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: DART_TESTING_TIMEOUT
-DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
 //Details about finding SDL2
 FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[mingw32;C:/msys64/mingw64/lib/libSDL2main.a;C:/msys64/mingw64/lib/libSDL2.dll.a][C:/msys64/mingw64/include/SDL2][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
-//ADVANCED property for variable: MAKECOMMAND
-MAKECOMMAND-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MEMORYCHECK_COMMAND
-MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
-MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
-SDL2_LIBRARY_TEMP:INTERNAL=mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;C:/msys64/mingw64/lib/libSDL2.dll.a
-//ADVANCED property for variable: SITE
-SITE-ADVANCED:INTERNAL=1
+SDL2_LIBRARY_TEMP:INTERNAL=mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;mingw32;C:/msys64/mingw64/lib/libSDL2main.a;C:/msys64/mingw64/lib/libSDL2.dll.a
 
