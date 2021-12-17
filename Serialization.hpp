@@ -90,13 +90,13 @@ class Serialization {
             }
         }
 
-        string getNoteContent(ifstream& stream){
+        static string getNoteContent(ifstream& stream){
             string line;
             getline(stream, line);
             return replace(line);
         }
 
-       string replace(string line, string regex = "  ", string future = "") {
+        static string replace(string line, string regex = "  ", string future = "") {
            size_t startPos = 0;
 
            while((startPos = line.find(regex, startPos)) != string::npos) {
@@ -107,7 +107,7 @@ class Serialization {
            return line;
        }
 
-       FILETYPE getFileType(string line) {
+        static FILETYPE getFileType(string line) {
             switch(line[1]){
                 case 'F': return DOSSIER;
                 case 'N': return FICHIER;
@@ -115,15 +115,15 @@ class Serialization {
             }
         }
 
-        bool getEndFile(string line) {
+        static bool getEndFile(string line) {
             return line[1] == '/' && line[2] != 'N';
         }
 
-        bool getEndNote(string line) {
+        static bool getEndNote(string line) {
             return line[1] == '/' && line[2] == 'N';
         }
 
-        string getAttribute(string line, string attribut) {
+        static string getAttribute(string line, string attribut) {
             size_t startPos = 0;
 
            startPos = line.find(attribut + "='", startPos);
@@ -145,10 +145,7 @@ class Serialization {
             this->path = new stack<Folder*>;
         }
 
-        ~Serialization() {
-            delete path->top();
-            delete root;
-        }
+        ~Serialization() { delete path; }
 
         void addRoot(Folder* root) { this->root = root; }
 

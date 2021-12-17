@@ -268,7 +268,7 @@ void onQuit() {
     //On retourne à la root.
     while(path->size() > 1){ path->pop(); }
 
-    delete path->top(); //Suppression de la root, qui supprimera tout en cascade.
+    //delete path->top(); //Suppression de la root, qui supprimera tout en cascade.
     delete path;
     delete dataFile;
     delete selections;
