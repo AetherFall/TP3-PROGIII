@@ -63,23 +63,40 @@ public:
     void createFile(string file)                 { notes.push_back(new Note(move(file)));}
 
     //Suppression
-    void removeNoteAt(int i)   { delete this->notes.at(i); }
-    void removeFolderAt(int i) { delete this->folders.at(i); }
+    void removeNoteAt(int i)   {
+        Note* temp = this->notes.at(i);
+        this->notes.erase(this->notes.begin() + i);
+        delete temp;
+    }
+
+    void removeFolderAt(int i) {
+        Folder* temp = this->folders.at(i);
+        this->folders.erase(this->folders.begin() + i);
+        delete temp;
+    }
 
     //Tri par QuickSort
     void sortFolders(long min, long max, FILETYPE type) {
         long g = min, d = max, p = min;
 
         while (g != d) {
-            if (notes.at(g)->getName() > notes.at(d)->getName()) {
-                if(type == FILETYPE::DOSSIER)
+            if(type == FILETYPE::DOSSIER) {
+                if (folders.at(g)->getName() > folders.at(d)->getName()) {
                     swap(folders.at(g), folders.at(d));
-                else if(type == FILETYPE::FICHIER)
+                    p = g + d - p;
+                }
+            }
+            else if(type == FILETYPE::FICHIER) {
+                if (notes.at(g)->getName() > notes.at(d)->getName()) {
                     swap(notes.at(g), notes.at(d));
-                else // Fichier compressé
+                    p = g + d - p;
+                }
+            }
+            else {// Fichier compressé
+                if (notes.at(g)->getName() > notes.at(d)->getName()) {
                     swap(notes.at(g), notes.at(d));
-
-                p = g + d - p;
+                    p = g + d - p;
+                }
             }
 
             (p == g) ? d-- : g++;

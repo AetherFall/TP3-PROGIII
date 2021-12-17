@@ -97,18 +97,7 @@ class Serialization {
             return replace(line);
         }
 
-        static string replace(string line, const string& regex = "  ", const string& future = "") {
-           size_t startPos = 0;
-
-           while((startPos = line.find(regex, startPos)) != string::npos) {
-               line.replace(startPos, regex.length(), future);
-               startPos += future.length();
-           }
-
-           return line;
-       }
-
-        static FILETYPE getFileType(string line) {
+    static FILETYPE getFileType(string line) {
             switch(line[1]){
                 case 'F': return DOSSIER;
                 case 'N': return FICHIER;
@@ -128,9 +117,9 @@ class Serialization {
         static string getAttribute(string line, const string& attribut) {
             size_t startPos = 0;
 
-           startPos = line.find(attribut + "='", startPos);
-           line.erase(0, startPos + attribut.length() + 2);
-           line.erase(line.end()- 2, line.end());
+            startPos = line.find(attribut + "='", startPos);
+            line.erase(0, startPos + attribut.length() + 2);
+            line.erase(line.end()- 2, line.end());
 
             return line;
        }
@@ -175,6 +164,18 @@ class Serialization {
             else
                 throw std::invalid_argument("Erreur dans le flux de chargement. (Verifier le path)");
         }
+
+        static string replace(string line, const string& regex = "  ", const string& future = "") {
+            size_t startPos = 0;
+
+            while((startPos = line.find(regex, startPos)) != string::npos) {
+                line.replace(startPos, regex.length(), future);
+                startPos += future.length();
+            }
+
+            return line;
+        }
+
 };
 
 

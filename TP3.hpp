@@ -47,6 +47,33 @@ string getVerificationNameSize(int index, FILETYPE Type) {
 }
 
 /**
+ * Effectue une vérification de l'existence de doublons et effectue les modifications nécessaires dans le cas de présence de doublons.
+ * @param name Nom désire
+ * @return Nom de l'élement modifier pour ne pas avoir de doublons
+ */
+string getNameBasedOnDoublons(string name, int val = 1){
+    for(int i =0; i < path->top()->getAllSize(); i++){
+        //Vérification existence de folder?
+        if(path->top()->getFolderSize())
+            if (path->top()->getFolderNameAt(i) == name) {
+                if (val > 1)
+                    name = Serialization::replace(name, "(" + to_string(val ) + ")", "");
+
+                return getNameBasedOnDoublons(name + "(" + to_string(val) + ")", val + 1);
+            }
+        //Vérification existence Note?
+        if(path->top()->getNoteSize())
+            if(path->top()->getNoteNameAt(i  - path->top()->getFolderSize()) == name) {
+                if (val != 1)
+                    name = Serialization::replace(name, "(" + to_string(val -1) + ")", "");
+
+                return getNameBasedOnDoublons(name + "(" + to_string(val) + ")", val +1);
+            }
+    }
+    return name;
+}
+
+/**
  * Donne l'index de l'élément ou se trouve la souris
  * Formule de calcul: (W / iW) / x * (H / iH) / y
  * @param x Position en X du curseur
@@ -174,7 +201,7 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
         //Si nous somme sur une note
         if(selections->size() == 1 && index > path->top()->getFolderSize() && index < path->top()->getAllSize())
-            Window::showMenu(x,y, SELECT_ALL | NEW_NOTE | NEW_FOLDER | RENAME | DELETE /*| ENCODE | DECODAGE*/ ); //TODO Ajouter l'encodage et le decodage
+            Window::showMenu(x,y, SELECT_ALL | NEW_NOTE | NEW_FOLDER | RENAME | DELETE /*| ENCODE | DECODAGE*/ ); //TODO Ajouter l'encodage et le décodage
 
         //TODO Gérer les fichier compressé
     }
@@ -182,97 +209,109 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
 void onMenuClick(const unsigned int& menuItem) {
     int i = 0;
+    string getName;
+
     switch (menuItem) {
         case Menu::NEW_FOLDER:
-            path->top()->createFolder(Window::showTextField());
-            path->top()->sortFolders(0, path->top()->getFolderSize() - 1, FILETYPE::DOSSIER);
+            path->top()->createFolder(getNameBasedOnDoublons(Window::showTextField()));
+            path->top()->sortFolders(0, path->top()->getFolderSize() -1, FILETYPE::DOSSIER);
             break;
 
         case Menu::NEW_NOTE:
-            path->top()->createFile(Window::showTextField());
+            path->top()->createFile(getNameBasedOnDoublons( Window::showTextField()));
             path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FILETYPE::FICHIER);
             break;
 
-        case Menu::RENAME:  // TODO : Renommer le dossier ou la note
-            //Recherche de l'index sélectionné.
-            while (i < path->top()->getAllSize() && !selections->search(i)) { i++; }
+        case Menu::RENAME:
+                //Recherche de l'index sélectionné.
+                while (i < path->top()->getAllSize() && !selections->search(i)) { i++; }
 
-            if (i < path->top()->getFolderSize()) {
-                path->top()->setFolderNameAt(Window::showTextField(path->top()->getFolderNameAt(i)), i);
-                path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FILETYPE::DOSSIER);
-            }
-            else {
-                path->top()->setNoteNameAt(Window::showTextField(path->top()->getFolderNameAt(i)), i);
-                path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FILETYPE::FICHIER);
-            }
-            break;
+                if (i < path->top()->getFolderSize()) {
+                    getName = getNameBasedOnDoublons(Window::showTextField(path->top()->getFolderNameAt(i)));
 
-        case Menu::DELETE: // TODO : Supprimer le ou les dossiers, et tout ce qu'ils contiennent, et la ou les notes sélectionner
-            if(selections->size()) {
-                queue<int>* traversal = selections->traversal(Traversal::Infix);
-                auto* reverseTraversal = new stack<int>;
-                unsigned int sizeTraversal = traversal->size();
-                int iterateur;
-
-                //Inversion de la queue pour qu'elle devienne décroissante.
-                for(iterateur = 0; iterateur < sizeTraversal; iterateur++) {
-                    reverseTraversal->push(traversal->front());
-                    traversal->pop();
+                    if(!getName.empty()) {
+                        path->top()->setFolderNameAt(getName, i);
+                        path->top()->sortFolders(0, path->top()->getNoteSize() - 1, DOSSIER);
+                    }
                 }
 
-                //Suppression des éléments sélectionné.
-                for(iterateur = 0; iterateur < sizeTraversal; iterateur++) {
-                    (reverseTraversal->top() >= path->top()->getFolderSize()) ?
-                    path->top()->removeNoteAt(reverseTraversal->top() - path->top()->getFolderSize()) :
-                    path->top()->removeFolderAt(reverseTraversal->top());
+                else {
+                    getName = getNameBasedOnDoublons(Window::showTextField(path->top()->getNoteNameAt(i - path->top()->getFolderSize())));
 
-                    reverseTraversal->pop();
+                    if(!getName.empty()) {
+                        path->top()->setNoteNameAt(getName, i);
+                        path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FICHIER);
+                    }
                 }
 
-                delete reverseTraversal;
-            }
-        break;
+                break;
+
+        case Menu::DELETE:
+                if(selections->size()) {
+                    queue<int>* traversal = selections->traversal(Infix);
+                    auto* reverseTraversal = new stack<int>;
+                    unsigned int sizeTraversal = traversal->size();
+
+                    //Inversion de la queue pour qu'elle devienne décroissante.
+                    while(!traversal->empty()){
+                        reverseTraversal->push(traversal->front());
+                        traversal->pop();
+                    }
+
+                    //Suppression des éléments sélectionnés.
+                    for(int iterateur = 0; iterateur < sizeTraversal; iterateur++) {
+                        (reverseTraversal->top() >= path->top()->getFolderSize()) ?
+                        path->top()->removeNoteAt(reverseTraversal->top() - path->top()->getFolderSize()) :
+                        path->top()->removeFolderAt(reverseTraversal->top());
+
+                        reverseTraversal->pop();
+                    }
+
+                    //Suppression de l'arbre afin de supprimer les index qui ont été supprimé qui sont encore dans l'arbre.
+                    selections->removeAll();
+
+                    delete reverseTraversal;
+                }
+
+                break;
 
         case Menu::ENCODE: // TODO : Encoder la note avec la m�thode de Huffman
-            path->top()->sortFolders(0, 1 - 1, FILETYPE::COMPRESSED);
-        break;
+                path->top()->sortFolders(0, 1 - 1, FILETYPE::COMPRESSED);
+                break;
 
         case Menu::DECODE: // TODO : D�coder la note avec la méthode de Huffman
-        break;
+                break;
 
         case Menu::SELECT_ALL:
-            selections->removeAll();
-            for(int j = 0; j < path->top()->getAllSize(); j++)
-                selections->add(j);
-        break;
+                selections->removeAll();
+                for(int j = 0; j < path->top()->getAllSize(); j++)
+                    selections->add(j);
+                break;
     }
 }
 
 void onQuit() {
     //Sauvegarde du systeme de fichier
-        //Dans un soucis de ne pas écrire par dessus mon système de fichier à tout va.
-        //TODO - Verification : Est-ce que ce MessageBox creer un pointeur au même titre que les Windows dans SDL2? Si oui, comment la détruire?
-        const SDL_MessageBoxButtonData buttons[] = {
-                {0, 0, "Non"},
-                {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 1, "Oui"}};
+    const SDL_MessageBoxButtonData buttons[] = {
+            {0, 0, "Non"},
+            {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 1, "Oui"}};
 
-        const SDL_MessageBoxData msgData = { SDL_MESSAGEBOX_INFORMATION,
-                                             nullptr,
-                                             "Sauvegarder?",
-                                             "Souhaitez-vous sauvegarder les modifications qui ont été apporté dans la dernière execution du programme?",
-                                             SDL_arraysize(buttons), buttons};
-        int buttonid;
+    const SDL_MessageBoxData msgData = { SDL_MESSAGEBOX_INFORMATION,
+                                         nullptr,
+                                         "Sauvegarder?",
+                                         "Souhaitez-vous sauvegarder les modifications qui ont été apporté dans la dernière execution du programme?",
+                                         SDL_arraysize(buttons), buttons};
+    int buttonid;
 
-        if (SDL_ShowMessageBox(&msgData, &buttonid) < 0) //Si erreur.
-            SDL_Log("Erreur d'affichage du message box.");
+    if (SDL_ShowMessageBox(&msgData, &buttonid) < 0) //Si erreur.
+        SDL_Log("Erreur d'affichage du message box.");
 
-        if (buttonid == 1) //Sélection du bouton "Oui"
-            dataFile->sauvegarder(pathFileSystem);
+    if (buttonid == 1) //Sélection du bouton "Oui"
+        dataFile->sauvegarder(pathFileSystem);
 
     //On retourne à la root.
     while(path->size() > 1){ path->pop(); }
 
-    //delete path->top(); //Suppression de la root, qui supprimera tout en cascade.
     delete path;
     delete dataFile;
     delete selections;
