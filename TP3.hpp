@@ -231,7 +231,7 @@ void onMenuClick(const unsigned int& menuItem) {
 
                     if(!getName.empty()) {
                         path->top()->setFolderNameAt(getName, i);
-                        path->top()->sortFolders(0, path->top()->getNoteSize() - 1, DOSSIER);
+                        path->top()->sortFolders(0, path->top()->getFolderSize() -1, DOSSIER);
                     }
                 }
 
