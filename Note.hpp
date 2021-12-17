@@ -16,14 +16,14 @@ private:
 
 public:
 	Note(string name, string content = ""){
-        this->name = name;
-        this->content = content;
+        this->name = move(name);
+        this->content = move(content);
     }
 
     string getName(){ return this->name; }
     string getContent() { return this->content; }
 
-    void setName(string name) { this->name = name; }
-    void setContent(string content) { this->content = content; }
+    void setName(string name) { this->name = move(name); }
+    void setContent(string content) { this->content = move(content); }
 
 };

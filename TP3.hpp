@@ -23,18 +23,19 @@ using namespace std;
 
 stack<Folder*>* path;
 BSTree<int>* selections;
-string title;
 Serialization* dataFile;
+string title;
+
 //AVLTree<int>* selections;
 
 /**
  * Fonction qui ajuste la taille des label appartenant aux fichiers en tout genre.
- * @param path Endroit ou se trouve le label a verifier
+ * @param thisPath Endroit ou se trouve le label a verifier
  * @param index Emplacement precis ou se trouve le dit label
  * @param Type Quel type de fichier est-ce (FICHIER, DOSSIER, COMPRESSED)
  * @return retourne la longueur optimale en string pour le label
  */
-string getVerificationNameSize(stack<Folder*>* path, int index, FILETYPE Type) {
+string getVerificationNameSize(int index, FILETYPE Type) {
     if(Type == FILETYPE::DOSSIER)
         return (Window::getStringWidth(path->top()->getFolderNameAt(index)) >= Window::getIconWidth()) ?
                path->top()->getFolderNameAt(index).replace(12,path->top()->getFolderNameAt(index).size() -12,"...") : path->top()->getFolderNameAt(index);
@@ -92,7 +93,7 @@ void onRefresh() {
         Window::drawIcon(Icon::FOLDER, posX, posY, selections->search(i));
 
         //Vérification si le nom dépasse l'icon du dossier
-        name = getVerificationNameSize(path, i, DOSSIER);
+        name = getVerificationNameSize(i, DOSSIER);
 
         Window::drawString(name, posX + ((Window::getIconWidth() -  Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
         posX += Window::getIconWidth();
@@ -104,9 +105,9 @@ void onRefresh() {
             posY += Window::getIconHeight();
             posX = 0;
         }
-        name = getVerificationNameSize(path, i, FICHIER);
+        name = getVerificationNameSize(i, FICHIER);
 
-        Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i + path->top()->getFolderSize()));
+        Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i + signed (path->top()->getFolderSize())));
         Window::drawString(name, posX + ((Window::getIconWidth() - Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
         posX += Window::getIconWidth();
     }
@@ -135,12 +136,12 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
         else{
             //Changement de répertoire
-            if (index < signed(path->top()->getFolderSize() + path->top()->getNoteSize())) {
+            if (index < path->top()->getFolderSize() + path->top()->getNoteSize()) {
 
                 //Fichiers
-                if (index < signed(path->top()->getFolderSize()))
+                if (index < path->top()->getFolderSize())
                     if (index < 0) {
-                        title.erase(title.end() - path->top()->getName().size() - 1, title.end());
+                        title.erase(title.end() - unsigned(path->top()->getName().size()) - 1, title.end());
                         path->pop();
                     }
 
@@ -207,18 +208,18 @@ void onMenuClick(const unsigned int& menuItem) {
         case Menu::DELETE: // TODO : Supprimer le ou les dossiers, et tout ce qu'ils contiennent, et la ou les notes sélectionner
             if(selections->size()) {
                 queue<int>* traversal = selections->traversal(Traversal::Infix);
-                stack<int>* reverseTraversal = new stack<int>;
-                int sizeTraversal = traversal->size();
-                int i;
+                auto* reverseTraversal = new stack<int>;
+                unsigned int sizeTraversal = traversal->size();
+                int iterateur;
 
                 //Inversion de la queue pour qu'elle devienne décroissante.
-                for(i = 0; i < sizeTraversal; i++) {
+                for(iterateur = 0; iterateur < sizeTraversal; iterateur++) {
                     reverseTraversal->push(traversal->front());
                     traversal->pop();
                 }
 
                 //Suppression des éléments sélectionné.
-                for(i = 0; i < sizeTraversal; i++) {
+                for(iterateur = 0; iterateur < sizeTraversal; iterateur++) {
                     (reverseTraversal->top() >= path->top()->getFolderSize()) ?
                     path->top()->removeNoteAt(reverseTraversal->top() - path->top()->getFolderSize()) :
                     path->top()->removeFolderAt(reverseTraversal->top());
@@ -248,6 +249,7 @@ void onMenuClick(const unsigned int& menuItem) {
 void onQuit() {
     //Sauvegarde du systeme de fichier
         //Dans un soucis de ne pas écrire par dessus mon système de fichier à tout va.
+        //TODO - Verification : Est-ce que ce MessageBox creer un pointeur au même titre que les Windows dans SDL2? Si oui, comment la détruire?
         const SDL_MessageBoxButtonData buttons[] = {
                 {0, 0, "Non"},
                 {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 1, "Oui"}};

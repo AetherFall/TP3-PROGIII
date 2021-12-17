@@ -1,5 +1,6 @@
 #pragma once
 
+#include <utility>
 #include <vector>
 #include "Note.hpp"
 
@@ -22,17 +23,17 @@ private:
 
 public:
     Folder(string name) {
-        this->name = name;
+        this->name = move(name);
     }
 
     ~Folder() {
-        while(this->folders.size()) {
+        while(!folders.empty()) {
             Folder* temp = folders.back();
             folders.pop_back();
             delete temp;
         }
 
-        while(this->notes.size()) {
+        while(!notes.empty()) {
             Note* temp = notes.back();
             notes.pop_back();
             delete temp;
@@ -45,22 +46,22 @@ public:
     string getNoteNameAt(int i)    { return this->notes.at(i)->getName(); }
     string getNoteContentAt(int i) { return this->notes.at(i)->getContent(); }
 
-    size_t getFolderSize()         { return folders.size(); }
-    size_t getNoteSize()           { return notes.size(); }
-    size_t getAllSize()            { return folders.size() + notes.size(); }
+    int getFolderSize()         { return signed(folders.size()); }
+    int getNoteSize()           { return signed(notes.size()); }
+    int getAllSize()            { return signed(folders.size()) + signed(notes.size()); }
 
     Folder* getFolderAt(int i)     { return this->folders.at(i); }
     Folder* getLastFolder()        { return this->folders.at(folders.size() -1); }
     Note* getLastNote()            { return this->notes.at(notes.size() -1); }
 
     //Setter
-    void setName(string name)                    { this->name = name; }
-    void setNoteContentAt(string content, int i) { this->notes.at(i)->setContent(content); }
-    void setNoteNameAt(string name, int i)       { this->notes.at(i)->setName(name); }
-    void setFolderNameAt(string name, int i)     { this->folders.at(i)->setName(name); }
-    void createFolder(string folder)             { folders.push_back(new Folder(folder)); }
+    void setName(string name)                    { this->name = move(name); }
+    void setNoteContentAt(string content, int i) { this->notes.at(i)->setContent(move(content)); }
+    void setNoteNameAt(string name, int i)       { this->notes.at(i)->setName(move(name)); }
+    void setFolderNameAt(string name, int i)     { this->folders.at(i)->setName(move(name)); }
+    void createFolder(string folder)             { folders.push_back(new Folder(move(folder))); }
 
-    void createFile(string file)                 { notes.push_back(new Note(file));}
+    void createFile(string file)                 { notes.push_back(new Note(move(file)));}
 
     //Suppression
     void removeNoteAt(int i)   { delete this->notes.at(i); }
@@ -71,23 +72,15 @@ public:
         long g = min, d = max, p = min;
 
         while (g != d) {
-            if(type == FILETYPE::DOSSIER) {
-                if (folders.at(g)->getName() > folders.at(d)->getName()) {
+            if (notes.at(g)->getName() > notes.at(d)->getName()) {
+                if(type == FILETYPE::DOSSIER)
                     swap(folders.at(g), folders.at(d));
-                    p = g + d - p;
-                }
-            }
-            else if(type == FILETYPE::FICHIER) {
-                if (notes.at(g)->getName() > notes.at(d)->getName()) {
+                else if(type == FILETYPE::FICHIER)
                     swap(notes.at(g), notes.at(d));
-                    p = g + d - p;
-                }
-            }
-            else {// Fichier compressé
-                if (notes.at(g)->getName() > notes.at(d)->getName()) {
+                else // Fichier compressé
                     swap(notes.at(g), notes.at(d));
-                    p = g + d - p;
-                }
+
+                p = g + d - p;
             }
 
             (p == g) ? d-- : g++;

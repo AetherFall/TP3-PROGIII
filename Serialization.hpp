@@ -27,19 +27,19 @@ class Serialization {
          * @param stream Flux stream du fichier en cours
          * @param level Niveau d'indentation du fichier
          */
-        void sauvegarder(Folder* fichier, std::ofstream& stream, string level) {
+        void sauvegarder(Folder* fichier, std::ofstream& stream, string& level) {
             stream << level << "<F name='" << fichier->getName() <<"'>" << endl;
-            string level2 = level + "    ";
+            level += "    ";
 
             if(fichier->getAllSize()) {
                 if(fichier->getFolderSize()) {
                     for(int i = 0; i < fichier->getFolderSize(); i++)
-                        sauvegarder(fichier->getFolderAt(i), stream, level2);
+                        sauvegarder(fichier->getFolderAt(i), stream, level);
                 }
                 if(fichier->getNoteSize()) {
                     for(int i = 0; i < fichier->getNoteSize(); i++) {
-                        stream << level2 << "<N name='" << fichier->getNoteNameAt(i) << "'>" <<endl;
-                        stream << level2 << fichier->getNoteContentAt(i) << endl << level2 << "</N>" <<endl<<endl;
+                        stream << level << "<N name='" << fichier->getNoteNameAt(i) << "'>" <<endl;
+                        stream << level << fichier->getNoteContentAt(i) << endl << level << "</N>" <<endl<<endl;
                     }
                 }
             }
@@ -62,7 +62,7 @@ class Serialization {
                         if (!getEndNote(line)) {
                             switch (getFileType(line)) {
                                 case DOSSIER:
-                                    if (path->size()) {
+                                    if (!path->empty()) {
                                         path->top()->createFolder(getAttribute(line, "name"));
                                         path->push(path->top()->getLastFolder()); //On entre dans le dernier dossier ajouté
                                     }
@@ -96,7 +96,7 @@ class Serialization {
             return replace(line);
         }
 
-        static string replace(string line, string regex = "  ", string future = "") {
+        static string replace(string line, const string& regex = "  ", const string& future = "") {
            size_t startPos = 0;
 
            while((startPos = line.find(regex, startPos)) != string::npos) {
@@ -123,7 +123,7 @@ class Serialization {
             return line[1] == '/' && line[2] == 'N';
         }
 
-        static string getAttribute(string line, string attribut) {
+        static string getAttribute(string line, const string& attribut) {
             size_t startPos = 0;
 
            startPos = line.find(attribut + "='", startPos);
@@ -140,28 +140,21 @@ class Serialization {
             this->path = new stack<Folder*>;
         }
 
-        Serialization(Folder* root) {
-            this->root = root;
-            this->path = new stack<Folder*>;
-        }
-
         ~Serialization() { delete path; }
 
-        void addRoot(Folder* root) { this->root = root; }
-
-        void sauvegarder(string path){
-            ofstream fluxSauvegarde(path.c_str());
+        void sauvegarder(const string& filePath){
+            ofstream fluxSauvegarde(filePath.c_str());
             if(fluxSauvegarde){
                 //Lecture de chaque fichier et de son contenu
-                sauvegarder(root, fluxSauvegarde, "");
+                sauvegarder(root, fluxSauvegarde, (string &) "");
                 fluxSauvegarde.close();
             }
             else
                 throw std::invalid_argument("Erreur dans le flux de sauvegarde. (Verifier le path)");
         }
 
-        Folder* chargement(string path) {
-            ifstream fluxChargement(path.c_str());
+        Folder* chargement(const string& filePath) {
+            ifstream fluxChargement(filePath.c_str());
 
             if(fluxChargement){
                 chargement(fluxChargement);

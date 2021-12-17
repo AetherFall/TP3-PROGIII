@@ -214,7 +214,7 @@ public:
     bool search(T data){ return (root) && search(root, data); }
 
     queue<T>* traversal(Traversal type) {
-        queue<T>* traversalQueue = new queue<T>;
+        auto* traversalQueue = new queue<T>;
 
         if(root) {
             switch (type) {
@@ -228,7 +228,7 @@ public:
                     postfixTraversal(root, traversalQueue);
                     break;
                 case Traversal::BreathFirst:
-                    queue<DLNode<T>*>* where = new queue<DLNode<T>*>;
+                    auto* where = new queue<DLNode<T>*>;
                     where->push(root);
                     breathfirstTraversal(where, traversalQueue);
                     delete where;
