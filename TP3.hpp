@@ -12,7 +12,7 @@
 
 #include <iostream>
 
-#define pathFileSystem "..//saves//ntfs.xml"
+#define pathFileSystem "..//saves//ntfs2.xml"
 
 /**
     @author William-Benoit Lambert

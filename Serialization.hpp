@@ -157,12 +157,19 @@ class Serialization {
 
             if(fluxChargement){
                 chargement(fluxChargement);
-
                 fluxChargement.close();
-                return this->root;
+
+                return (this->root) ? this->root : new Folder("/");
             }
-            else
-                throw std::invalid_argument("Erreur dans le flux de chargement. (Verifier le path)");
+            else {
+                ofstream fluxDeCreation(filePath.c_str());
+                if(fluxDeCreation) {
+                    fluxDeCreation << "";
+                    fluxDeCreation.close();
+                }
+                else
+                    throw std::invalid_argument("Erreur dans le flux de chargement. (Verifier le path)");
+            }
         }
 
         static string replace(string line, const string& regex = "  ", const string& future = "") {
