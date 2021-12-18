@@ -160,10 +160,8 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
                 (selections->search(index)) ? selections->remove(index) : selections->add(index);
         }
 
-        else if(!ctrl && selections->size()) {
-            //Déselection totale
+        else if(!ctrl && selections->size())
             selections->removeAll();
-        }
 
         else{
             //Changement de répertoire
@@ -183,8 +181,10 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
                 //Notes
                 else {
-                    index -= path->top()->getFolderSize();
-                    path->top()->setNoteContentAt(Window::showTextField(path->top()->getNoteContentAt(index)), index);
+                    string content = Window::showTextField(path->top()->getNoteContentAt( index - path->top()->getFolderSize()));
+
+                    if(!content.empty())
+                        path->top()->setNoteContentAt(content,  index - path->top()->getFolderSize());
                 }
             }
         }
@@ -210,7 +210,6 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 }
 
 void onMenuClick(const unsigned int& menuItem) {
-    int i = 0;
     string getName;
 
     switch (menuItem) {
@@ -232,28 +231,29 @@ void onMenuClick(const unsigned int& menuItem) {
             }
             break;
 
-        case Menu::RENAME:
-                //Recherche de l'index sélectionné.
-                while (i < path->top()->getAllSize() && !selections->search(i)) { i++; }
+        case Menu::RENAME: {
+                    int i = 0;
 
-                if (i < path->top()->getFolderSize()) {
-                    getName = getNameBasedOnDoublons(Window::showTextField(path->top()->getFolderNameAt(i)));
+                    //Recherche de l'index sélectionné.
+                    while (i < path->top()->getAllSize() && !selections->search(i)) { i++; }
 
-                    if(!getName.empty()) {
-                        path->top()->setFolderNameAt(getName, i);
-                        path->top()->sortFolders(0, path->top()->getFolderSize() -1, DOSSIER);
+                    if (i < path->top()->getFolderSize()) {
+                        getName = getNameBasedOnDoublons(Window::showTextField(path->top()->getFolderNameAt(i)));
+
+                        if (!getName.empty()) {
+                            path->top()->setFolderNameAt(getName, i);
+                            path->top()->sortFolders(0, path->top()->getFolderSize() - 1, DOSSIER);
+                        }
+                    }
+                    else {
+                        getName = getNameBasedOnDoublons(Window::showTextField(path->top()->getNoteNameAt(i - path->top()->getFolderSize())));
+
+                        if (!getName.empty()) {
+                            path->top()->setNoteNameAt(getName, i);
+                            path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FICHIER);
+                        }
                     }
                 }
-
-                else {
-                    getName = getNameBasedOnDoublons(Window::showTextField(path->top()->getNoteNameAt(i - path->top()->getFolderSize())));
-
-                    if(!getName.empty()) {
-                        path->top()->setNoteNameAt(getName, i);
-                        path->top()->sortFolders(0, path->top()->getNoteSize() - 1, FICHIER);
-                    }
-                }
-
                 break;
 
         case Menu::DELETE:

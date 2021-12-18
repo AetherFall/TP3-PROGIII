@@ -1,17 +1,6 @@
 <F name='/'>
     <F name='Base de donnee'>
         <F name='Bicolline'>
-            <F name='Base de donnee'>
-                <N name='BicollineBD.accdb'>
-                
-                </N>
-
-                </F>
-
-            <N name='Bicolline.accdb'>
-            
-            </N>
-
             </F>
 
         <F name='VBA'>
@@ -118,6 +107,24 @@
             </N>
 
             </F>
+
+        </F>
+
+    <F name='Recettes'>
+        <F name='Recette de grand-maman'>
+            <N name='Note'>
+            J'avais oublie, elle ne cuisine pas.
+            </N>
+
+            </F>
+
+        <N name='Gateau aux poires'>
+        
+        </N>
+
+        <N name='Pomme de terre au four'>
+        
+        </N>
 
         </F>
 
