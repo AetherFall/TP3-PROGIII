@@ -50,9 +50,9 @@ string getVerificationNameSize(string name, bool flag = false) {
  * @return Nom de l'élement modifier pour ne pas avoir de doublons
  */
 string getNameBasedOnDoublons(string name, int val = 1){
-    for(int i =0; i < path->top()->getAllSize(); i++){
+    for(int i = 0; i < path->top()->getAllSize(); i++){
         //Vérification existence de folder?
-        if(path->top()->getFolderSize())
+        if(path->top()->getFolderSize() && i < path->top()->getFolderSize())
             if (path->top()->getFolderNameAt(i) == name) {
                 if (val != 1)
                     name = Serialization::replace(name, "(" + to_string(val -1) + ")", "");
@@ -61,8 +61,8 @@ string getNameBasedOnDoublons(string name, int val = 1){
             }
 
         //Vérification existence Note?
-        if(path->top()->getNoteSize())
-            if(path->top()->getNoteNameAt(i  - path->top()->getFolderSize()) == name) {
+        if(path->top()->getNoteSize() && i >= path->top()->getFolderSize())
+            if(path->top()->getNoteNameAt(i  - path->top()->getFolderSize()) == name) { //TODO Problem here
                 if (val != 1)
                     name = Serialization::replace(name, "(" + to_string(val -1) + ")", "");
 
@@ -286,7 +286,7 @@ void onMenuClick(const unsigned int& menuItem) {
                 break;
 
         case Menu::ENCODE: // TODO : Encoder la note avec la m�thode de Huffman
-                path->top()->sortFolders(0, 1 - 1, FILETYPE::COMPRESSED);
+                //path->top()->sortFolders(0, 1 - 1, FILETYPE::COMPRESSED);
                 break;
 
         case Menu::DECODE: // TODO : D�coder la note avec la méthode de Huffman
