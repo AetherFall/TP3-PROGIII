@@ -3,10 +3,10 @@
 
 CMakeFiles/TP3.dir/main.cpp.obj: \
  ../BSTree.hpp \
+ ../Bonus/Serialization.hpp \
  ../DLNode.hpp \
  ../Folder.hpp \
  ../Note.hpp \
- ../Serialization.hpp \
  ../TP3.hpp \
  ../Window.hpp \
  ../main.cpp
