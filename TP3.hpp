@@ -7,7 +7,10 @@
 #include "Folder.hpp"
 #include "Note.hpp"
 
-#include "Bonus/Serialization.hpp"
+#include "Bonus/Serialization/Serialization.cpp"
+#include "Bonus/Huffman/Huffman.cpp"
+
+#include <iostream>
 
 #define pathFileSystem "..//saves//ntfs.xml"
 
@@ -27,6 +30,7 @@ using namespace std;
 stack<Folder*>* path;
 BSTree<int>* selections;
 Serialization* dataFile;
+Huffman compresser;
 
 /**
  * Fonction qui ajuste la taille des label appartenant aux icons.
@@ -91,6 +95,8 @@ void onInit() {
 
     path->push(dataFile->chargement(pathFileSystem));
     Window::setTitle(path->top()->getName());
+
+    cout << Huffman::encoding("Hello") <<endl;
 }
 
 /**

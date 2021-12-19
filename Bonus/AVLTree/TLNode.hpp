@@ -1,3 +1,12 @@
+#pragma once
+
+/**
+    @author William-Benoit Lambert
+    @code 1735971
+    @page TLNode.hpp
+    @note Nodes servant à la création d'un arbre AVL
+ */
+
 template <typename T>
 class TLNode {
   public:

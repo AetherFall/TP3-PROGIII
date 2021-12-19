@@ -4,6 +4,17 @@
 #include <queue>
 #include "TLNode.hpp"
 
+/**
+    @author William-Benoit Lambert
+    @code 1735971
+    @page AVLTree.hpp
+    @note Structure de données de l'arbre AVL
+ */
+
+/**
+ * @attention Cette page est encore en développement et n'est pas terminé d'etre programmé, merci de faire comme si elle n'existait pas pour le moment.
+ */
+
 using namespace std;
 
 enum Traversal { Prefix, Infix, Postfix };

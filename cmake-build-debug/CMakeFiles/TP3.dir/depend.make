@@ -3,7 +3,10 @@
 
 CMakeFiles/TP3.dir/main.cpp.obj: \
  ../BSTree.hpp \
- ../Bonus/Serialization.hpp \
+ ../Bonus/Huffman/Huffman.cpp \
+ ../Bonus/Huffman/Huffman.hpp \
+ ../Bonus/Serialization/Serialization.cpp \
+ ../Bonus/Serialization/Serialization.hpp \
  ../DLNode.hpp \
  ../Folder.hpp \
  ../Note.hpp \

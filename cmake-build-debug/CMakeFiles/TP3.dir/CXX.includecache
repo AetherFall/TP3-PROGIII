@@ -12,7 +12,19 @@ queue
 DLNode.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp
 
-C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.cpp
+Huffman.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.hpp
+string
+-
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.cpp
+Serialization.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.hpp
 fstream
 -
 string
@@ -21,9 +33,9 @@ stdexcept
 -
 stack
 -
-../Folder.hpp
+../../Folder.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
-../Note.hpp
+../../Note.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
 
 C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp
@@ -49,8 +61,12 @@ Folder.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
 Note.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
-Bonus/Serialization.hpp
-C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization.hpp
+Bonus/Serialization/Serialization.cpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.cpp
+Bonus/Huffman/Huffman.cpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.cpp
+iostream
+-
 
 C:/Users/xterm/CLionProject/TP3CLWindows/Window.hpp
 cmath

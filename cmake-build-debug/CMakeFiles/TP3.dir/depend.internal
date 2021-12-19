@@ -3,7 +3,10 @@
 
 CMakeFiles/TP3.dir/main.cpp.obj
  C:/Users/xterm/CLionProject/TP3CLWindows/BSTree.hpp
- C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization.hpp
+ C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.cpp
+ C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.hpp
+ C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.cpp
+ C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.hpp
  C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp
  C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
  C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
