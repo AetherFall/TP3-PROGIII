@@ -2,15 +2,11 @@
 
 #include <stack>
 #include <queue>
-#include <vector>
 #include <string>
 #include "BSTree.hpp"
-//#include "AVLTRee.hpp"
 #include "Folder.hpp"
 #include "Note.hpp"
 #include "Serialization.hpp"
-
-#include <iostream>
 
 #define pathFileSystem "..//saves//ntfs.xml"
 
@@ -21,14 +17,15 @@
     @note Fonctions principales aux fonctionnements de l'application.
  */
 
+
+/** @attention j'ai apporté un petit ajout au fichier Window.hpp (Window.hpp: 31) */
+
+
 using namespace std;
 
 stack<Folder*>* path;
 BSTree<int>* selections;
 Serialization* dataFile;
-string title;
-
-//AVLTree<int>* selections;
 
 /**
  * Fonction qui ajuste la taille des label appartenant aux icons.
@@ -92,19 +89,15 @@ void onInit() {
     dataFile = new Serialization();
 
     path->push(dataFile->chargement(pathFileSystem));
-
-    title = path->top()->getName();
+    Window::setTitle(path->top()->getName());
 }
 
 /**
  * Affichage du contenu du dossier actuel (60x / Sec)
  */
 void onRefresh() {
-    int posX = 0, posY = 0, i;
+    int posX = 0, posY = 0;
     string name;
-
-    //Paramétrage général
-    Window::setTitle(title);
 
     //Fichier de retour en arriere
     if(path->size() > 1) {
@@ -113,34 +106,31 @@ void onRefresh() {
         posX += Window::getIconWidth();
     }
 
-    //Définition du système de dossier actuel
-    for(i = 0; i < path->top()->getFolderSize(); i++) {
+    //Définition du système de fichiers actuel
+    for(int i = 0; i < path->top()->getAllSize(); i++) {
         if(posX + Window::getIconWidth() > Window::getWidth()) {
             posY += Window::getIconHeight();
             posX = 0;
         }
 
-        //Vérification si le nom dépasse l'icon du dossier
-        name = getVerificationNameSize(path->top()->getFolderNameAt(i));
+        if(i < path->top()->getFolderSize()) {
+            //Vérification si le nom dépasse l'icon du dossier
+            name = getVerificationNameSize(path->top()->getFolderNameAt(i));
 
-        Window::drawIcon(Icon::FOLDER, posX, posY, selections->search(i));
-        Window::drawString(name, posX + ((Window::getIconWidth() -  Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
-        posX += Window::getIconWidth();
-    }
-
-    //Définition du système de fichier actuel
-    for(i = 0; i < path->top()->getNoteSize(); i++) {
-        if(posX + Window::getIconWidth() > Window::getWidth()) {
-            posY += Window::getIconHeight();
-            posX = 0;
+            Window::drawIcon(Icon::FOLDER, posX, posY, selections->search(i));
+            Window::drawString(name, posX + ((Window::getIconWidth() -  Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
+            posX += Window::getIconWidth();
         }
 
-        //Vérification si le nom dépasse l'icon du dossier
-        name = getVerificationNameSize(path->top()->getNoteNameAt(i));
+        else {
+            //Vérification si le nom dépasse l'icon du dossier
+            name = getVerificationNameSize(path->top()->getNoteNameAt(i - path->top()->getFolderSize()));
 
-        Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i + signed (path->top()->getFolderSize())));
-        Window::drawString(name, posX + ((Window::getIconWidth() - Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
-        posX += Window::getIconWidth();
+            Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i));
+            Window::drawString(name, posX + ((Window::getIconWidth() - Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
+            posX += Window::getIconWidth();
+        }
+
     }
 }
 
@@ -163,20 +153,22 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
         else if(!ctrl && selections->size())
             selections->removeAll();
 
-        else{
+        else {
             //Changement de répertoire
             if (index < path->top()->getFolderSize() + path->top()->getNoteSize()) {
 
                 //Fichiers
                 if (index < path->top()->getFolderSize())
                     if (index < 0) {
+                        string title = Window::getTitle();
                         title.erase(title.end() - unsigned(path->top()->getName().size()) - 1, title.end());
+                        Window::setTitle(title);
                         path->pop();
                     }
 
                     else {
                         path->push(path->top()->getFolderAt(index));
-                        title = title + path->top()->getName() + "/";
+                        Window::setTitle(Window::getTitle() + path->top()->getName() + "/");
                     }
 
                 //Notes
