@@ -7,8 +7,8 @@
 #include <stdexcept>
 #include <stack>
 
-#include "Folder.hpp"
-#include "Note.hpp"
+#include "../Folder.hpp"
+#include "../Note.hpp"
 
 /**
     @author William-Benoit Lambert

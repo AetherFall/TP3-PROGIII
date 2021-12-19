@@ -6,7 +6,8 @@
 #include "BSTree.hpp"
 #include "Folder.hpp"
 #include "Note.hpp"
-#include "Serialization.hpp"
+
+#include "Bonus/Serialization.hpp"
 
 #define pathFileSystem "..//saves//ntfs.xml"
 
