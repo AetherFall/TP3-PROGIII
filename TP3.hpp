@@ -21,6 +21,10 @@
     @note Fonctions principales aux fonctionnements de l'application.
  */
 
+
+/** @attention j'ai apporté un petit ajout au fichier Window.hpp (Window.hpp: 31) */
+
+
 using namespace std;
 
 stack<Folder*>* path;
@@ -91,9 +95,7 @@ void onInit() {
     dataFile = new Serialization();
 
     path->push(dataFile->chargement(pathFileSystem));
-
     Window::setTitle(path->top()->getName());
-
 }
 
 /**
@@ -110,34 +112,31 @@ void onRefresh() {
         posX += Window::getIconWidth();
     }
 
-    //Définition du système de dossier actuel
-    for(i = 0; i < path->top()->getFolderSize(); i++) {
+    //Définition du système de fichiers actuel
+    for(i = 0; i < path->top()->getAllSize(); i++) {
         if(posX + Window::getIconWidth() > Window::getWidth()) {
             posY += Window::getIconHeight();
             posX = 0;
         }
 
-        //Vérification si le nom dépasse l'icon du dossier
-        name = getVerificationNameSize(path->top()->getFolderNameAt(i));
+        if(i < path->top()->getFolderSize()) {
+            //Vérification si le nom dépasse l'icon du dossier
+            name = getVerificationNameSize(path->top()->getFolderNameAt(i));
 
-        Window::drawIcon(Icon::FOLDER, posX, posY, selections->search(i));
-        Window::drawString(name, posX + ((Window::getIconWidth() -  Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
-        posX += Window::getIconWidth();
-    }
-
-    //Définition du système de fichier actuel
-    for(i = 0; i < path->top()->getNoteSize(); i++) {
-        if(posX + Window::getIconWidth() > Window::getWidth()) {
-            posY += Window::getIconHeight();
-            posX = 0;
+            Window::drawIcon(Icon::FOLDER, posX, posY, selections->search(i));
+            Window::drawString(name, posX + ((Window::getIconWidth() -  Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
+            posX += Window::getIconWidth();
         }
 
-        //Vérification si le nom dépasse l'icon du dossier
-        name = getVerificationNameSize(path->top()->getNoteNameAt(i));
+        else {
+            //Vérification si le nom dépasse l'icon du dossier
+            name = getVerificationNameSize(path->top()->getNoteNameAt(i - path->top()->getFolderSize()));
 
-        Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i + signed (path->top()->getFolderSize())));
-        Window::drawString(name, posX + ((Window::getIconWidth() - Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
-        posX += Window::getIconWidth();
+            Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i));
+            Window::drawString(name, posX + ((Window::getIconWidth() - Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
+            posX += Window::getIconWidth();
+        }
+
     }
 }
 
