@@ -12,7 +12,7 @@
 
 #include <iostream>
 
-#define pathFileSystem "..//saves//ntfs5.xml"
+#define pathFileSystem "..//saves//ntfs.xml"
 
 /**
     @author William-Benoit Lambert
@@ -26,7 +26,6 @@ using namespace std;
 stack<Folder*>* path;
 BSTree<int>* selections;
 Serialization* dataFile;
-string title;
 
 //AVLTree<int>* selections;
 
@@ -93,7 +92,8 @@ void onInit() {
 
     path->push(dataFile->chargement(pathFileSystem));
 
-    title = path->top()->getName();
+    Window::setTitle(path->top()->getName());
+
 }
 
 /**
@@ -102,9 +102,6 @@ void onInit() {
 void onRefresh() {
     int posX = 0, posY = 0, i;
     string name;
-
-    //Paramétrage général
-    Window::setTitle(title);
 
     //Fichier de retour en arriere
     if(path->size() > 1) {
@@ -170,13 +167,15 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
                 //Fichiers
                 if (index < path->top()->getFolderSize())
                     if (index < 0) {
+                        string title = Window::getTitle();
                         title.erase(title.end() - unsigned(path->top()->getName().size()) - 1, title.end());
+                        Window::setTitle(title);
                         path->pop();
                     }
 
                     else {
                         path->push(path->top()->getFolderAt(index));
-                        title = title + path->top()->getName() + "/";
+                        Window::setTitle(Window::getTitle() + path->top()->getName() + "/");
                     }
 
                 //Notes
