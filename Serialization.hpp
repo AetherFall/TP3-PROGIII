@@ -30,17 +30,17 @@ class Serialization {
          */
         void sauvegarder(Folder* fichier, std::ofstream& stream, string level) {
             stream << level << "<F name='" << fichier->getName() <<"'>" << endl;
-            level += "    ";
+            string level2 = level + "    ";
 
             if(fichier->getAllSize()) {
                 if(fichier->getFolderSize()) {
                     for(int i = 0; i < fichier->getFolderSize(); i++)
-                        sauvegarder(fichier->getFolderAt(i), stream, level);
+                        sauvegarder(fichier->getFolderAt(i), stream, level2);
                 }
                 if(fichier->getNoteSize()) {
                     for(int i = 0; i < fichier->getNoteSize(); i++) {
-                        stream << level << "<N name='" << fichier->getNoteNameAt(i) << "'>" <<endl;
-                        stream << level << fichier->getNoteContentAt(i) << endl << level << "</N>" <<endl<<endl;
+                        stream << level2 << "<N name='" << fichier->getNoteNameAt(i) << "'>" <<endl;
+                        stream << level2 << fichier->getNoteContentAt(i) << endl << level2 << "</N>" <<endl<<endl;
                     }
                 }
             }
@@ -162,15 +162,13 @@ class Serialization {
 
             else {
                 ofstream fluxDeCreation(filePath.c_str());
-                if(fluxDeCreation) {
-                    fluxDeCreation << "";
-                    fluxDeCreation.close();
-                }
-                else
-                    throw std::invalid_argument("Erreur dans le flux de chargement. (Verifier le path)");
+
+                //Création d'un fichier XML s'il n'existe pas déjà
+                (fluxDeCreation)? fluxDeCreation.close() : throw std::invalid_argument("Erreur dans le flux de chargement. (Verifier le path)");
             }
 
-            return (this->root) ? this->root : new Folder("/");
+            root = this->root ?: new Folder("/");
+            return root;
         }
 
         static string replace(string line, const string& regex = "  ", const string& future = "") {
