@@ -2,15 +2,11 @@
 
 #include <stack>
 #include <queue>
-#include <vector>
 #include <string>
 #include "BSTree.hpp"
-//#include "AVLTRee.hpp"
 #include "Folder.hpp"
 #include "Note.hpp"
 #include "Serialization.hpp"
-
-#include <iostream>
 
 #define pathFileSystem "..//saves//ntfs.xml"
 
@@ -30,8 +26,6 @@ using namespace std;
 stack<Folder*>* path;
 BSTree<int>* selections;
 Serialization* dataFile;
-
-//AVLTree<int>* selections;
 
 /**
  * Fonction qui ajuste la taille des label appartenant aux icons.
@@ -102,7 +96,7 @@ void onInit() {
  * Affichage du contenu du dossier actuel (60x / Sec)
  */
 void onRefresh() {
-    int posX = 0, posY = 0, i;
+    int posX = 0, posY = 0;
     string name;
 
     //Fichier de retour en arriere
@@ -113,7 +107,7 @@ void onRefresh() {
     }
 
     //Définition du système de fichiers actuel
-    for(i = 0; i < path->top()->getAllSize(); i++) {
+    for(int i = 0; i < path->top()->getAllSize(); i++) {
         if(posX + Window::getIconWidth() > Window::getWidth()) {
             posY += Window::getIconHeight();
             posX = 0;
@@ -159,7 +153,7 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
         else if(!ctrl && selections->size())
             selections->removeAll();
 
-        else{
+        else {
             //Changement de répertoire
             if (index < path->top()->getFolderSize() + path->top()->getNoteSize()) {
 
