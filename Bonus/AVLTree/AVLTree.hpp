@@ -59,10 +59,6 @@ private:
     }
 
 
-    int getHeight(DLNode<T> node) {
-
-    }
-
 public:
     BSTree() {
         root = nullptr;

@@ -18,14 +18,19 @@ class Huffman {
     public:
         Huffman();
         ~Huffman();
-        std::string encoding(char text);
+        std::string encoding(std::string text);
         std::string decoding(std::string cypher);
 
     private:
         TLNode<char>* huffmanTree;
-        void charToHuffmanBin(TLNode<char>* node, char byteChain, char from, ofstream& stream);
+        void charToHuffmanBin(TLNode<char>* node, char byteChain, char from, ofstream& stream, int iteration);
         void generationDictionnaire();
         void generationArbre();
+        char findLetterCode(char letter);
+        char getLetter(string line);
+        char getCode(string line);
+        char findDecrypt(char cypher);
+        int Height(TLNode<char>* node);
 };
 
 #endif

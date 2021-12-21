@@ -1,6 +1,5 @@
 #include "Serialization.hpp"
 
-
 // PUBLIC ----------------------------------------
 
 Serialization::Serialization() {

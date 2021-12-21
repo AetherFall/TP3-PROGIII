@@ -166,7 +166,11 @@ add_test(RechercheElemPointeParElemSupp BSTest 18)
 
 #Remise en contexte de l'erreur
 add_test(ErreurFrequente BSTest 19)
-add_test(HuffmanChar BSTest 20)
+add_test(HuffmanString BSTest 20)
+
+add_test(HuffmanStringMAJ BSTest 21)
+add_test(HuffmanStringSomeMAJ BSTest 22)
+add_test(HuffmanDecoding BSTest 23)
 
 target_link_libraries(${PROJECT_NAME} ${420C35JO_TP3_LIBRARY})
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY_TEMP})

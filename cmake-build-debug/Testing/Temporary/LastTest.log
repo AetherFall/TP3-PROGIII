@@ -1,288 +1,333 @@
-Start testing: Dec 20 18:37 Est
+Start testing: Dec 21 09:37 Est
 ----------------------------------------------------------
-1/19 Testing: Unique_Leaf_ROOT
-1/19 Test: Unique_Leaf_ROOT
+1/22 Testing: Unique_Leaf_ROOT
+1/22 Test: Unique_Leaf_ROOT
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "0"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Unique_Leaf_ROOT" start time: Dec 20 18:37 Est
+"Unique_Leaf_ROOT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"Unique_Leaf_ROOT" end time: Dec 21 09:37 Est
+"Unique_Leaf_ROOT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/22 Testing: Unique_Leaf_LEFT
+2/22 Test: Unique_Leaf_LEFT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "1"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"Unique_Leaf_LEFT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Unique_Leaf_LEFT" end time: Dec 21 09:37 Est
+"Unique_Leaf_LEFT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/22 Testing: Unique_Leaf_RIGHT
+3/22 Test: Unique_Leaf_RIGHT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "2"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"Unique_Leaf_RIGHT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Unique_Leaf_RIGHT" end time: Dec 21 09:37 Est
+"Unique_Leaf_RIGHT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/22 Testing: One_Branch_G_ROOT
+4/22 Test: One_Branch_G_ROOT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "3"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"One_Branch_G_ROOT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"One_Branch_G_ROOT" end time: Dec 21 09:37 Est
+"One_Branch_G_ROOT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/22 Testing: One_Branch_G_LEFT
+5/22 Test: One_Branch_G_LEFT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "4"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"One_Branch_G_LEFT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"One_Branch_G_LEFT" end time: Dec 21 09:37 Est
+"One_Branch_G_LEFT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/22 Testing: One_Branch_G_RIGHT
+6/22 Test: One_Branch_G_RIGHT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "5"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"One_Branch_G_RIGHT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"One_Branch_G_RIGHT" end time: Dec 21 09:37 Est
+"One_Branch_G_RIGHT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/22 Testing: One_Branch_D_ROOT
+7/22 Test: One_Branch_D_ROOT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "6"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"One_Branch_D_ROOT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"One_Branch_D_ROOT" end time: Dec 21 09:37 Est
+"One_Branch_D_ROOT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/22 Testing: One_Branch_D_LEFT
+8/22 Test: One_Branch_D_LEFT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "7"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"One_Branch_D_LEFT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"One_Branch_D_LEFT" end time: Dec 21 09:37 Est
+"One_Branch_D_LEFT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/22 Testing: One_Branch_D_RIGHT
+9/22 Test: One_Branch_D_RIGHT
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "8"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"One_Branch_D_RIGHT" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.06 sec
 ----------------------------------------------------------
 Test Passed.
-"Unique_Leaf_ROOT" end time: Dec 20 18:37 Est
-"Unique_Leaf_ROOT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-2/19 Testing: Unique_Leaf_LEFT
-2/19 Test: Unique_Leaf_LEFT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "1"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Unique_Leaf_LEFT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.02 sec
-----------------------------------------------------------
-Test Passed.
-"Unique_Leaf_LEFT" end time: Dec 20 18:37 Est
-"Unique_Leaf_LEFT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-3/19 Testing: Unique_Leaf_RIGHT
-3/19 Test: Unique_Leaf_RIGHT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "2"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Unique_Leaf_RIGHT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.01 sec
-----------------------------------------------------------
-Test Passed.
-"Unique_Leaf_RIGHT" end time: Dec 20 18:37 Est
-"Unique_Leaf_RIGHT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-4/19 Testing: One_Branch_G_ROOT
-4/19 Test: One_Branch_G_ROOT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "3"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"One_Branch_G_ROOT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.01 sec
-----------------------------------------------------------
-Test Passed.
-"One_Branch_G_ROOT" end time: Dec 20 18:37 Est
-"One_Branch_G_ROOT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-5/19 Testing: One_Branch_G_LEFT
-5/19 Test: One_Branch_G_LEFT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "4"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"One_Branch_G_LEFT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.02 sec
-----------------------------------------------------------
-Test Passed.
-"One_Branch_G_LEFT" end time: Dec 20 18:37 Est
-"One_Branch_G_LEFT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-6/19 Testing: One_Branch_G_RIGHT
-6/19 Test: One_Branch_G_RIGHT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "5"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"One_Branch_G_RIGHT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.03 sec
-----------------------------------------------------------
-Test Passed.
-"One_Branch_G_RIGHT" end time: Dec 20 18:37 Est
-"One_Branch_G_RIGHT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-7/19 Testing: One_Branch_D_ROOT
-7/19 Test: One_Branch_D_ROOT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "6"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"One_Branch_D_ROOT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.03 sec
-----------------------------------------------------------
-Test Passed.
-"One_Branch_D_ROOT" end time: Dec 20 18:37 Est
-"One_Branch_D_ROOT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-8/19 Testing: One_Branch_D_LEFT
-8/19 Test: One_Branch_D_LEFT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "7"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"One_Branch_D_LEFT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.02 sec
-----------------------------------------------------------
-Test Passed.
-"One_Branch_D_LEFT" end time: Dec 20 18:37 Est
-"One_Branch_D_LEFT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-9/19 Testing: One_Branch_D_RIGHT
-9/19 Test: One_Branch_D_RIGHT
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "8"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"One_Branch_D_RIGHT" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.03 sec
-----------------------------------------------------------
-Test Passed.
-"One_Branch_D_RIGHT" end time: Dec 20 18:37 Est
+"One_Branch_D_RIGHT" end time: Dec 21 09:37 Est
 "One_Branch_D_RIGHT" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-10/19 Testing: Double_Branch_ROOT
-10/19 Test: Double_Branch_ROOT
+10/22 Testing: Double_Branch_ROOT
+10/22 Test: Double_Branch_ROOT
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "9"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Double_Branch_ROOT" start time: Dec 20 18:37 Est
+"Double_Branch_ROOT" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.03 sec
 ----------------------------------------------------------
 Test Passed.
-"Double_Branch_ROOT" end time: Dec 20 18:37 Est
+"Double_Branch_ROOT" end time: Dec 21 09:37 Est
 "Double_Branch_ROOT" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-11/19 Testing: Double_Branch_LEFT
-11/19 Test: Double_Branch_LEFT
+11/22 Testing: Double_Branch_LEFT
+11/22 Test: Double_Branch_LEFT
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "10"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Double_Branch_LEFT" start time: Dec 20 18:37 Est
+"Double_Branch_LEFT" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Double_Branch_LEFT" end time: Dec 20 18:37 Est
+"Double_Branch_LEFT" end time: Dec 21 09:37 Est
 "Double_Branch_LEFT" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-12/19 Testing: Double_Branch_RIGHT
-12/19 Test: Double_Branch_RIGHT
+12/22 Testing: Double_Branch_RIGHT
+12/22 Test: Double_Branch_RIGHT
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "11"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Double_Branch_RIGHT" start time: Dec 20 18:37 Est
+"Double_Branch_RIGHT" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Double_Branch_RIGHT" end time: Dec 21 09:37 Est
+"Double_Branch_RIGHT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/22 Testing: Cas_Particulier_1
+13/22 Test: Cas_Particulier_1
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "12"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"Cas_Particulier_1" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Cas_Particulier_1" end time: Dec 21 09:37 Est
+"Cas_Particulier_1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/22 Testing: Cas_Particulier_2
+14/22 Test: Cas_Particulier_2
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "13"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"Cas_Particulier_2" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.03 sec
 ----------------------------------------------------------
 Test Passed.
-"Double_Branch_RIGHT" end time: Dec 20 18:37 Est
-"Double_Branch_RIGHT" time elapsed: 00:00:00
-----------------------------------------------------------
-
-13/19 Testing: Cas_Particulier_1
-13/19 Test: Cas_Particulier_1
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "12"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Cas_Particulier_1" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.02 sec
-----------------------------------------------------------
-Test Passed.
-"Cas_Particulier_1" end time: Dec 20 18:37 Est
-"Cas_Particulier_1" time elapsed: 00:00:00
-----------------------------------------------------------
-
-14/19 Testing: Cas_Particulier_2
-14/19 Test: Cas_Particulier_2
-Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "13"
-Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"Cas_Particulier_2" start time: Dec 20 18:37 Est
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.02 sec
-----------------------------------------------------------
-Test Passed.
-"Cas_Particulier_2" end time: Dec 20 18:37 Est
+"Cas_Particulier_2" end time: Dec 21 09:37 Est
 "Cas_Particulier_2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-15/19 Testing: RechercheClassique
-15/19 Test: RechercheClassique
+15/22 Testing: RechercheClassique
+15/22 Test: RechercheClassique
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "16"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"RechercheClassique" start time: Dec 20 18:37 Est
+"RechercheClassique" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"RechercheClassique" end time: Dec 20 18:37 Est
+"RechercheClassique" end time: Dec 21 09:37 Est
 "RechercheClassique" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-16/19 Testing: RechercheElemSupp
-16/19 Test: RechercheElemSupp
+16/22 Testing: RechercheElemSupp
+16/22 Test: RechercheElemSupp
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "17"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"RechercheElemSupp" start time: Dec 20 18:37 Est
+"RechercheElemSupp" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"RechercheElemSupp" end time: Dec 20 18:37 Est
+"RechercheElemSupp" end time: Dec 21 09:37 Est
 "RechercheElemSupp" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-17/19 Testing: RechercheElemPointeParElemSupp
-17/19 Test: RechercheElemPointeParElemSupp
+17/22 Testing: RechercheElemPointeParElemSupp
+17/22 Test: RechercheElemPointeParElemSupp
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "18"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"RechercheElemPointeParElemSupp" start time: Dec 20 18:37 Est
+"RechercheElemPointeParElemSupp" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"RechercheElemPointeParElemSupp" end time: Dec 20 18:37 Est
+"RechercheElemPointeParElemSupp" end time: Dec 21 09:37 Est
 "RechercheElemPointeParElemSupp" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-18/19 Testing: ErreurFrequente
-18/19 Test: ErreurFrequente
+18/22 Testing: ErreurFrequente
+18/22 Test: ErreurFrequente
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "19"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"ErreurFrequente" start time: Dec 20 18:37 Est
+"ErreurFrequente" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"ErreurFrequente" end time: Dec 20 18:37 Est
+"ErreurFrequente" end time: Dec 21 09:37 Est
 "ErreurFrequente" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-19/19 Testing: HuffmanChar
-19/19 Test: HuffmanChar
+19/22 Testing: HuffmanString
+19/22 Test: HuffmanString
 Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "20"
 Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
-"HuffmanChar" start time: Dec 20 18:37 Est
+"HuffmanString" start time: Dec 21 09:37 Est
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.01 sec
+Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"HuffmanChar" end time: Dec 20 18:37 Est
-"HuffmanChar" time elapsed: 00:00:00
+"HuffmanString" end time: Dec 21 09:37 Est
+"HuffmanString" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 20 18:37 Est
+20/22 Testing: HuffmanStringMAJ
+20/22 Test: HuffmanStringMAJ
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "21"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"HuffmanStringMAJ" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"HuffmanStringMAJ" end time: Dec 21 09:37 Est
+"HuffmanStringMAJ" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/22 Testing: HuffmanStringSomeMAJ
+21/22 Test: HuffmanStringSomeMAJ
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "22"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"HuffmanStringSomeMAJ" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"HuffmanStringSomeMAJ" end time: Dec 21 09:37 Est
+"HuffmanStringSomeMAJ" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/22 Testing: HuffmanDecoding
+22/22 Test: HuffmanDecoding
+Command: "C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug/BSTest.exe" "23"
+Directory: C:/Users/xterm/CLionProject/TP3CLWindows/cmake-build-debug
+"HuffmanDecoding" start time: Dec 21 09:37 Est
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"HuffmanDecoding" end time: Dec 21 09:37 Est
+"HuffmanDecoding" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 21 09:37 Est

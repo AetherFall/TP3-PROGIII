@@ -96,9 +96,12 @@ TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
 TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
 TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
 TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
-TP3.exe: C:/msys64/mingw64/lib/libSDL2.dll.a
-TP3.exe: C:/msys64/mingw64/lib/libSDL2_ttf.dll.a
-TP3.exe: C:/msys64/mingw64/lib/libSDL2_image.dll.a
+TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
+TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
+TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
+TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
+TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
+TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
 TP3.exe: C:/msys64/mingw64/lib/libSDL2main.a
 TP3.exe: C:/msys64/mingw64/lib/libSDL2.dll.a
 TP3.exe: C:/msys64/mingw64/lib/libSDL2_ttf.dll.a

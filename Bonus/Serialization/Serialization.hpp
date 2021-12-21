@@ -15,6 +15,7 @@
     @code 1735971
     @page Serialization.hpp
     @note Fonctions de Serialization du programme dans un fichier XML
+    @note Contient aussi toutes les fonctions de gestions de chaînes de caractères
  */
 
 class Serialization {
