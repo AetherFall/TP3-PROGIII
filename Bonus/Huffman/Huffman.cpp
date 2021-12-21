@@ -22,11 +22,18 @@ std::string Huffman::encoding(std::string text) {
 
 std::string Huffman::decoding(std::string cypher) {
     string ligne;
+    int i = 0;
 
-    for(char &code : cypher){
-        if(code != ' ')
-            ligne += to_string(findDecrypt(code));
-    }
+    do {
+        string temp;
+        while(i < cypher.length() && cypher.at(i) != ' '){
+                temp += cypher.at(i);
+                i++;
+        }
+
+        ligne += char(findDecrypt(char(std::stoi(temp))));
+        i++;
+    } while(cypher.find(' ') != string::npos && i < cypher.length());
 
     return ligne;
 }

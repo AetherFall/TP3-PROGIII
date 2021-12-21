@@ -191,10 +191,13 @@ int main(int argc, char** argv) {
                  return (tree.search(2)) ? EXIT_SUCCESS: EXIT_FAILURE;
 
         //HUFFMAN
-        case 20: return compresser.encoding("allo") == "2 9 9 8" ? EXIT_SUCCESS: EXIT_FAILURE;
-        case 21: return compresser.encoding("ALLO") == "2 9 9 8" ? EXIT_SUCCESS: EXIT_FAILURE;
-        case 22: return compresser.encoding("Allo") == "2 9 9 8" ? EXIT_SUCCESS: EXIT_FAILURE;
-        case 23: return compresser.decoding("31") == "z" ? EXIT_SUCCESS: EXIT_FAILURE;
+        case 20: return compresser.encoding("z") == "28" ? EXIT_SUCCESS: EXIT_FAILURE;
+        case 21: return compresser.encoding("allo") == "2 9 9 8" ? EXIT_SUCCESS: EXIT_FAILURE;
+        case 22: return compresser.encoding("ALLO") == "2 9 9 8" ? EXIT_SUCCESS: EXIT_FAILURE;
+        case 23: return compresser.encoding("Allo") == "2 9 9 8" ? EXIT_SUCCESS: EXIT_FAILURE;
+        case 24: return compresser.decoding("28") == "z" ? EXIT_SUCCESS: EXIT_FAILURE;
+        case 25: cout << compresser.decoding("2 9 9 8") <<endl;
+            return compresser.decoding("2 9 9 8") == "allo" ? EXIT_SUCCESS: EXIT_FAILURE;
 
     }
 }
