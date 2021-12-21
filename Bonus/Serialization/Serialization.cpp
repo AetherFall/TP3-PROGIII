@@ -77,8 +77,14 @@ void Serialization::sauvegarder(Folder* fichier, std::ofstream& stream, string l
         }
         if(fichier->getNoteSize()) {
             for(int i = 0; i < fichier->getNoteSize(); i++) {
-                stream << level2 << "<N name='" << fichier->getNoteNameAt(i) << "'>" <<endl;
-                stream << level2 << fichier->getNoteContentAt(i) << endl << level2 << "</N>" <<endl<<endl;
+                if(fichier->getNoteCompressionAt(i)) {
+                    stream << level2 << "<H name='" << fichier->getNoteNameAt(i) << "'>" << endl;
+                    stream << level2 << fichier->getNoteContentAt(i) << endl << level2 << "</H>" << endl << endl;
+                }
+                else {
+                    stream << level2 << "<N name='" << fichier->getNoteNameAt(i) << "'>" << endl;
+                    stream << level2 << fichier->getNoteContentAt(i) << endl << level2 << "</N>" << endl << endl;
+                }
             }
         }
     }
@@ -120,6 +126,9 @@ void Serialization::chargement(std::ifstream& stream){
                             path->top()->getLastNote()->setContent(getNoteContent(stream));
                             break;
                         case COMPRESSED:
+                            path->top()->createFile(getAttribute(line, "name"));
+                            path->top()->getLastNote()->setContent(getNoteContent(stream));
+                            path->top()->getLastNote()->setCompression(true);
                             break;
                     }
                 }
@@ -145,11 +154,11 @@ FILETYPE Serialization::getFileType(string line) {
 }
 
 bool Serialization::getEndFile(string line) {
-    return line[1] == '/' && line[2] != 'N';
+    return line[1] == '/' && line[2] == 'F';
 }
 
 bool Serialization::getEndNote(string line) {
-    return line[1] == '/' && line[2] == 'N';
+    return line[1] == '/' && (line[2] == 'N' || line[2] == 'H');
 }
 
 string Serialization::getAttribute(string line, const string& attribut) {
