@@ -13,7 +13,7 @@ class TLNode {
       T data;
       TLNode<T>*up, * left,* right;
 
-      TLNode(T data, TLNode<T>* up, TLNode<T>* left = nullptr, TLNode<T>* right = nullptr) {
+      TLNode(T data, TLNode<T>* up = nullptr, TLNode<T>* left = nullptr, TLNode<T>* right = nullptr) {
         this->data = data;
         this->left = up;
         this->left = left;

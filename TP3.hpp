@@ -3,7 +3,7 @@
 #include <stack>
 #include <queue>
 #include <string>
-#include "BSTree.hpp"
+#include "BSTree/BSTree.hpp"
 #include "Folder.hpp"
 #include "Note.hpp"
 
@@ -95,8 +95,6 @@ void onInit() {
 
     path->push(dataFile->chargement(pathFileSystem));
     Window::setTitle(path->top()->getName());
-
-    cout << Huffman::encoding("Hello") <<endl;
 }
 
 /**

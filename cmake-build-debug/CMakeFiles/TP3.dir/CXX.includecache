@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/xterm/CLionProject/TP3CLWindows/BSTree.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/BSTree.hpp
 queue
 -
 DLNode.hpp
-C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/DLNode.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/DLNode.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/AVLTree/TLNode.hpp
 
 C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.cpp
 Huffman.hpp
@@ -18,6 +22,22 @@ C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.hpp
 
 C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.hpp
 string
+-
+../PriorityQueue/priorityQueue.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/priorityQueue.hpp
+../AVLTree/TLNode.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/AVLTree/TLNode.hpp
+cstdlib
+-
+fstream
+-
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/PQNode.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/priorityQueue.hpp
+PQNode.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/PQNode.hpp
+cstdlib
 -
 
 C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.cpp
@@ -38,8 +58,6 @@ C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
 ../../Note.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
 
-C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp
-
 C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
 vector
 -
@@ -55,8 +73,8 @@ queue
 -
 string
 -
-BSTree.hpp
-C:/Users/xterm/CLionProject/TP3CLWindows/BSTree.hpp
+BSTree/BSTree.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/BSTree.hpp
 Folder.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
 Note.hpp

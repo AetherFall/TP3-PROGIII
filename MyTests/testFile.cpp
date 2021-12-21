@@ -1,6 +1,9 @@
-#include "../BSTree.hpp"
+#include "../BSTree/BSTree.hpp"
+#include "../Bonus/Huffman/Huffman.cpp"
 #include <string>
 #include <queue>
+
+#include <iostream>
 
 using namespace std;
 
@@ -35,6 +38,7 @@ string printTraversal(queue<int>* traversal) {
 
 int main(int argc, char** argv) {
     BSTree<int> tree;
+    Huffman compresser;
 
     switch(stoi(argv[1])) {
         case 0: tree.add(42);
@@ -185,5 +189,6 @@ int main(int argc, char** argv) {
 
         case 19: tree.remove(7);
                  return (tree.search(2)) ? EXIT_SUCCESS: EXIT_FAILURE;
+
     }
 }

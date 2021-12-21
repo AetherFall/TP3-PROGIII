@@ -9,15 +9,22 @@
  */
 
 #include <string>
+#include "../PriorityQueue/priorityQueue.hpp"
+#include "../AVLTree/TLNode.hpp"
+#include <cstdlib> //For binary conversion
+#include <fstream>
 
 class Huffman {
     public:
         Huffman();
-        std::string encoding(std::string text);
+        ~Huffman();
+        std::string encoding(char text);
         std::string decoding(std::string cypher);
 
     private:
-        string cleCryptage;
+        TLNode<char>* huffmanTree;
+        void charToHuffmanBin(TLNode<char>* node, char byteChain, char from, ofstream& stream);
+        void generationDictionnaire();
         void generationArbre();
 };
 
