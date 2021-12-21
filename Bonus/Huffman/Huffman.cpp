@@ -6,7 +6,7 @@
 
 Huffman::Huffman(){ generationArbre(); generationDictionnaire(); }
 
-Huffman::~Huffman() { delete huffmanTree; }
+Huffman::~Huffman() { remove(huffmanTree); }
 
 /**
  * Encodage de Huffman
@@ -53,7 +53,7 @@ std::string Huffman::decoding(std::string cypher) {
 
 /**
  * Hauteur de l'arbre de Huffman
- * @param node Root de l'arbre
+ * @param node huffmanTree de l'arbre
  * @return Hauteur à son maximum de l'arbre
  */
 int Huffman::Height(TLNode<char>* node) {
@@ -135,7 +135,7 @@ void Huffman::generationDictionnaire() {
 
 /**
  * Parsing de l'arbre de Huffman dans un dictionnaire
- * @param node Root de l'arbre et node de récursivité
+ * @param node huffmanTree de l'arbre et node de récursivité
  * @param byteChain Chaine binaire servant au parsing.
  * @param from S'il vient de gauche ou de droite la valeur sera 1 ou 0
  * @param stream Fichier texte contenant le dictionnaire dans lequel sera enregistré le code
@@ -249,4 +249,67 @@ char Huffman::getCode(string line) {
     line.erase(line.begin(), line.begin() + (i +1));
 
     return char(std::stoi(line));
+}
+
+/**
+ * Suppression de l'arbre de Huffman
+ * @param data
+ */
+void Huffman::remove(TLNode<char>* node) {
+    if(huffmanTree) {
+        //Feuille unique
+        if (!node->right && !node->left) {
+            if (node == huffmanTree)
+                huffmanTree = nullptr;
+            else
+                (node->up->left == node) ? node->up->left = nullptr : node->up->right = nullptr;
+            delete node;
+        }
+
+            //Contient 1 branche
+            //Droite
+        else if (node->right && !node->left) {
+            if (node == huffmanTree) {
+                TLNode<char>* temp = huffmanTree;
+                huffmanTree = node->right;
+                delete temp;
+            }
+            else {
+                if (node == node->up->right)
+                    node->up->right = node->right ?: node->left;
+                else
+                    node->up->left = node->right ?: node->left;
+
+                delete node;
+            }
+        }
+
+            //Gauche
+        else if (!node->right && node->left) {
+            if (node == huffmanTree) {
+                TLNode<char>* temp = huffmanTree;
+                huffmanTree = node->left;
+                delete temp;
+            }
+            else {
+                if (node == node->up->left)
+                    node->up->left = node->left ?: node->right;
+                else
+                    node->up->right = node->left ?: node->right;
+
+                delete node;
+            }
+        }
+
+            //Contient 2 branches
+        else {
+            TLNode<char> *temp = node->left;
+
+            while (temp->right) { temp = temp->right; }
+
+            char tempData = temp->data;
+            remove(temp);
+            node->data = tempData;
+        }
+    }
 }

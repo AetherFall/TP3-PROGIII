@@ -31,6 +31,7 @@ class Huffman {
         char getCode(string line);
         char findDecrypt(char cypher);
         int Height(TLNode<char>* node);
+        void remove(TLNode<char>* node);
 };
 
 #endif
