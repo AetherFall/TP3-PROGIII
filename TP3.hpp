@@ -180,10 +180,13 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
                 //Notes
                 else {
-                    string content = Window::showTextField(path->top()->getNoteContentAt( index - path->top()->getFolderSize()));
+                    if(!path->top()->getNoteCompressionAt(index - path->top()->getFolderSize())) {
+                        string content = Window::showTextField(
+                                path->top()->getNoteContentAt(index - path->top()->getFolderSize()));
 
-                    if(!content.empty())
-                        path->top()->setNoteContentAt(content,  index - path->top()->getFolderSize());
+                        if (!content.empty())
+                            path->top()->setNoteContentAt(content, index - path->top()->getFolderSize());
+                    }
                 }
             }
         }
