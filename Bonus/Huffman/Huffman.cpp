@@ -3,10 +3,16 @@
 #define dictionnairePath "..//Bonus//Huffman//dictionnaire.txt"
 
 //PUBLIC                 -------------------------------------------------
+
 Huffman::Huffman(){ generationArbre(); generationDictionnaire(); }
 
 Huffman::~Huffman() { delete huffmanTree; }
 
+/**
+ * Encodage de Huffman
+ * @param text Ce qui doit être encrypté
+ * @return text encrypté
+ */
 std::string Huffman::encoding(std::string text) {
     string crypted;
 
@@ -20,6 +26,11 @@ std::string Huffman::encoding(std::string text) {
     return crypted;
 }
 
+/**
+ * Décodage du code de Huffman
+ * @param cypher message encrypté
+ * @return message décrypté
+ */
 std::string Huffman::decoding(std::string cypher) {
     string ligne;
     int i = 0;
@@ -40,12 +51,20 @@ std::string Huffman::decoding(std::string cypher) {
 
 //PRIVATE              ------------------------------------------------
 
+/**
+ * Hauteur de l'arbre de Huffman
+ * @param node Root de l'arbre
+ * @return Hauteur à son maximum de l'arbre
+ */
 int Huffman::Height(TLNode<char>* node) {
     int left = (node->left) ? Height(node->left) : 0;
     int right = (node->right) ? Height(node->right) : 0;
     return (left > right) ? left+1 : right+1;
 }
 
+/**
+ * Génération de l'arbre
+ */
 void Huffman::generationArbre() {
     //Source du modèle statistique: https://fr.wikipedia.org/wiki/Fr%C3%A9quence_d%27apparition_des_lettres_en_fran%C3%A7ais
     string statsParOccurence = " eaisnrtoludcmpgbvhfqyxjkwz";
@@ -100,6 +119,9 @@ void Huffman::generationArbre() {
     delete keyTree;
 }
 
+/**
+ * Génération d'un dictionnaire d'encodage
+ */
 void Huffman::generationDictionnaire() {
     ofstream fluxConstruction(dictionnairePath);
     if(fluxConstruction){
@@ -111,6 +133,14 @@ void Huffman::generationDictionnaire() {
         throw std::invalid_argument("Erreur dans la création du dictionnaire de Huffman. (Verifier le path)");
 }
 
+/**
+ * Parsing de l'arbre de Huffman dans un dictionnaire
+ * @param node Root de l'arbre et node de récursivité
+ * @param byteChain Chaine binaire servant au parsing.
+ * @param from S'il vient de gauche ou de droite la valeur sera 1 ou 0
+ * @param stream Fichier texte contenant le dictionnaire dans lequel sera enregistré le code
+ * @param iteration à quel niveau dans l'arbre nous sommes. (Servant à ajouter des bits de remplissages)
+ */
 void Huffman::charToHuffmanBin(TLNode<char>* node, char byteChain, char from, ofstream& stream, int iteration) {
     if(from != '\000') {
         byteChain = (byteChain << 1) + from - '0';
@@ -134,6 +164,11 @@ void Huffman::charToHuffmanBin(TLNode<char>* node, char byteChain, char from, of
 
 }
 
+/**
+ * Recherche du code Huffman de la lettre désiré
+ * @param letter à encoder.
+ * @return lettre encodé.
+ */
 char Huffman::findLetterCode(char letter){
     ifstream fluxDictionnaire(dictionnairePath);
     string line;
@@ -156,6 +191,11 @@ char Huffman::findLetterCode(char letter){
     return code;
 }
 
+/**
+ * Recherche de la lettre selon le code de Huffman
+ * @param cypher Code de huffman
+ * @return lettre décrypté
+ */
 char Huffman::findDecrypt(char cypher){
     ifstream fluxDictionnaire(dictionnairePath);
     string line;
@@ -178,6 +218,11 @@ char Huffman::findDecrypt(char cypher){
     return letter;
 }
 
+/**
+ * Recherche traduction de la lettre se trouvant à cette ligne
+ * @param line ligne sur laquel nous effectuons la recherche
+ * @return lettre trouvé à cette ligne.
+ */
 char Huffman::getLetter(string line) {
     int i = 0;
     string temp = "";
@@ -190,6 +235,11 @@ char Huffman::getLetter(string line) {
     return (!temp.empty())? char(std::stoi(temp)): '\000';
 }
 
+/**
+ * Recherche du code de Huffman selon la ligne
+ * @param line ligne sur laquel nous effectuons la recherche
+ * @return code de Huffman
+ */
 char Huffman::getCode(string line) {
     int i = 0;
     size_t pos = 0;
