@@ -1,0 +1,5 @@
+/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/CMakeFiles/edit_cache.dir
+/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/CMakeFiles/test.dir
+/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/CMakeFiles/BSTest.dir
+/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/CMakeFiles/TP3.dir

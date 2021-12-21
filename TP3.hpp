@@ -3,10 +3,12 @@
 #include <stack>
 #include <queue>
 #include <string>
-#include "BSTree.hpp"
+#include "BSTree/BSTree.hpp"
 #include "Folder.hpp"
 #include "Note.hpp"
-#include "Serialization.hpp"
+
+#include "Bonus/Serialization/Serialization.cpp"
+#include "Bonus/Huffman/Huffman.cpp"
 
 #define pathFileSystem "..//saves//ntfs.xml"
 
@@ -26,11 +28,12 @@ using namespace std;
 stack<Folder*>* path;
 BSTree<int>* selections;
 Serialization* dataFile;
+Huffman compresser;
 
 /**
  * Fonction qui ajuste la taille des label appartenant aux icons.
  * @param name Label à vérifier
- * @return Label + ... de la longueur optimale.
+ * @return Label + "..." de la longueur optimale.
  */
 string getVerificationNameSize(string name, bool flag = false) {
     if(Window::getStringWidth(name + "...  ") > Window::getIconWidth()){
@@ -126,7 +129,11 @@ void onRefresh() {
             //Vérification si le nom dépasse l'icon du dossier
             name = getVerificationNameSize(path->top()->getNoteNameAt(i - path->top()->getFolderSize()));
 
-            Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i));
+            if(path->top()->getNoteCompressionAt(i  - path->top()->getFolderSize()))
+                Window::drawIcon(Icon::HUFFMAN, posX, posY, selections->search(i));
+            else
+                Window::drawIcon(Icon::NOTE, posX, posY, selections->search(i));
+
             Window::drawString(name, posX + ((Window::getIconWidth() - Window::getStringWidth(name)) / 2), (Window::getIconHeight() - 25) + posY);
             posX += Window::getIconWidth();
         }
@@ -155,7 +162,7 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
         else {
             //Changement de répertoire
-            if (index < path->top()->getFolderSize() + path->top()->getNoteSize()) {
+            if (index < path->top()->getAllSize()) {
 
                 //Fichiers
                 if (index < path->top()->getFolderSize())
@@ -173,10 +180,13 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
 
                 //Notes
                 else {
-                    string content = Window::showTextField(path->top()->getNoteContentAt( index - path->top()->getFolderSize()));
+                    if(!path->top()->getNoteCompressionAt(index - path->top()->getFolderSize())) {
+                        string content = Window::showTextField(
+                                path->top()->getNoteContentAt(index - path->top()->getFolderSize()));
 
-                    if(!content.empty())
-                        path->top()->setNoteContentAt(content,  index - path->top()->getFolderSize());
+                        if (!content.empty())
+                            path->top()->setNoteContentAt(content, index - path->top()->getFolderSize());
+                    }
                 }
             }
         }
@@ -194,10 +204,12 @@ void onWindowClick(const int& x, const int& y, const bool& button, const bool& c
         }
 
         //Si nous somme sur une note
-        if(selections->size() == 1 && index > path->top()->getFolderSize() && index < path->top()->getAllSize())
-            Window::showMenu(x,y, SELECT_ALL | NEW_NOTE | NEW_FOLDER | RENAME | DELETE /*| ENCODE | DECODAGE*/ ); //TODO Ajouter l'encodage et le décodage
+        if(selections->size() == 1 && index >= path->top()->getFolderSize() && index < path->top()->getAllSize())
+            if(path->top()->getNoteCompressionAt(index - path->top()->getFolderSize()))
+                Window::showMenu(x,y, SELECT_ALL | NEW_NOTE | NEW_FOLDER | RENAME | DELETE | DECODE);
+            else
+                Window::showMenu(x,y, SELECT_ALL | NEW_NOTE | NEW_FOLDER | RENAME | DELETE | ENCODE);
 
-        //TODO Gérer les fichier compressé
     }
 }
 
@@ -277,11 +289,40 @@ void onMenuClick(const unsigned int& menuItem) {
 
                 break;
 
-        case Menu::ENCODE: // TODO : Encoder la note avec la m�thode de Huffman
-                //path->top()->sortFolders(0, 1 - 1, FILETYPE::COMPRESSED);
+        case Menu::ENCODE: {
+                    int i = 0;
+
+                    //Recherche de l'index sélectionné.
+                    while (i < path->top()->getAllSize() && !selections->search(i)) { i++; }
+
+                    if (i >= path->top()->getFolderSize() && i < path->top()->getAllSize()) {
+                        i -= path->top()->getFolderSize();
+                        string content = path->top()->getNoteContentAt(i);
+
+                        if (!content.empty()) {
+                            path->top()->setNoteContentAt(compresser.encoding(content), i);
+                            path->top()->setNoteCompressAt(true, i);
+                        }
+                    }
+                }
                 break;
 
-        case Menu::DECODE: // TODO : D�coder la note avec la méthode de Huffman
+        case Menu::DECODE: {
+                    int i = 0;
+
+                    //Recherche de l'index sélectionné.
+                    while (i < path->top()->getAllSize() && !selections->search(i)) { i++; }
+
+                    if (i >= path->top()->getFolderSize() && i < path->top()->getAllSize()) {
+                        i -= path->top()->getFolderSize();
+                        string content = path->top()->getNoteContentAt(i);
+
+                        if (!content.empty() && path->top()->getNoteCompressionAt(i)) {
+                            path->top()->setNoteContentAt(compresser.decoding(content), i);
+                            path->top()->setNoteCompressAt(false, i);
+                        }
+                    }
+                }
                 break;
 
         case Menu::SELECT_ALL:

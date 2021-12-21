@@ -140,15 +140,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/AVLTRee.hpp">
-			<Option target="TP3"/>
-		</Unit>
-		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/BSTree.hpp">
-			<Option target="TP3"/>
-		</Unit>
-		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp">
-			<Option target="TP3"/>
-		</Unit>
 		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp">
 			<Option target="TP3"/>
 		</Unit>
@@ -156,12 +147,6 @@
 			<Option target="BSTest"/>
 		</Unit>
 		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp">
-			<Option target="TP3"/>
-		</Unit>
-		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/Serialization.hpp">
-			<Option target="TP3"/>
-		</Unit>
-		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/TLNode.hpp">
 			<Option target="TP3"/>
 		</Unit>
 		<Unit filename="C:/Users/xterm/CLionProject/TP3CLWindows/TP3.hpp">
