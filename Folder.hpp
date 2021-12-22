@@ -26,17 +26,12 @@ public:
     }
 
     ~Folder() {
-        while(!folders.empty()) {
-            Folder* temp = folders.back();
-            folders.pop_back();
-            delete temp;
-        }
+        int i;
 
-        while(!notes.empty()) {
-            Note* temp = notes.back();
-            notes.pop_back();
-            delete temp;
-        }
+        for(i =0; i < folders.size(); i++)
+            delete folders.at(i);
+        for(i = 0; i < notes.size(); i++)
+            delete notes.at(i);
     }
 
     //Getter
@@ -44,6 +39,7 @@ public:
     string getFolderNameAt(int i)  { return this->folders.at(i)->getName(); }
     string getNoteNameAt(int i)    { return this->notes.at(i)->getName(); }
     string getNoteContentAt(int i) { return this->notes.at(i)->getContent(); }
+    bool getNoteCompressionAt(int i)     { return this->notes.at(i)->isCompressed(); }
 
     int getFolderSize()         { return signed(folders.size()); }
     int getNoteSize()           { return signed(notes.size()); }
@@ -54,13 +50,13 @@ public:
     Note* getLastNote()            { return this->notes.at(notes.size() -1); }
 
     //Setter
-    void setName(string name)                    { this->name = move(name); }
-    void setNoteContentAt(string content, int i) { this->notes.at(i)->setContent(move(content)); }
-    void setNoteNameAt(string name, int i)       { this->notes.at(i)->setName(move(name)); }
-    void setFolderNameAt(string name, int i)     { this->folders.at(i)->setName(move(name)); }
-    void createFolder(string folder)             { folders.push_back(new Folder(move(folder))); }
-
-    void createFile(string file)                 { notes.push_back(new Note(move(file)));}
+    void setName(string name)                       { this->name = move(name); }
+    void setNoteContentAt(string content, int i)    { this->notes.at(i)->setContent(move(content)); }
+    void setNoteNameAt(string name, int i)          { this->notes.at(i)->setName(move(name)); }
+    void setNoteCompressAt(bool compression, int i) { this->notes.at(i)->setCompression(compression); }
+    void setFolderNameAt(string name, int i)        { this->folders.at(i)->setName(move(name)); }
+    void createFolder(string folder)                { folders.push_back(new Folder(move(folder))); }
+    void createFile(string file)                    { notes.push_back(new Note(move(file)));}
 
     //Suppression
     void removeNoteAt(int i)   {

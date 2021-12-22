@@ -27,6 +27,9 @@ public:
 	static void showMenu(const int& x, const int& y, const unsigned int& enables = 0);
 	static string showTextField(const string& text = "");
 
+    //J'ai créer cette méthode de l'objet Window afin d'éviter de créer une variable globale contenant un titre, sachant que GetWindowTitle le faisait déjà pour moi.
+    static string getTitle() { return SDL_GetWindowTitle(instance->sdlWindow); }
+
 private:
 	static TTF_Font* font, * textFont;
 	static unsigned int enableItems;

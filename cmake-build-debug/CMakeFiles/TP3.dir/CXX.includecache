@@ -6,23 +6,45 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/xterm/CLionProject/TP3CLWindows/BSTree.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/BSTree.hpp
 queue
 -
 DLNode.hpp
-C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/DLNode.hpp
 
-C:/Users/xterm/CLionProject/TP3CLWindows/DLNode.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/DLNode.hpp
 
-C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
-vector
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/AVLTree/TLNode.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.cpp
+Huffman.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.hpp
+string
 -
-Note.hpp
-C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
+../PriorityQueue/priorityQueue.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/priorityQueue.hpp
+../AVLTree/TLNode.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/AVLTree/TLNode.hpp
+cstdlib
+-
+fstream
+-
 
-C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/PQNode.hpp
 
-C:/Users/xterm/CLionProject/TP3CLWindows/Serialization.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/priorityQueue.hpp
+PQNode.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/PriorityQueue/PQNode.hpp
+cstdlib
+-
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.cpp
+Serialization.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.hpp
 fstream
 -
 string
@@ -31,9 +53,17 @@ stdexcept
 -
 stack
 -
-Folder.hpp
+../../Folder.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
+../../Note.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
+
+C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
+vector
+-
 Note.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
+
 C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
 
 C:/Users/xterm/CLionProject/TP3CLWindows/TP3.hpp
@@ -41,20 +71,18 @@ stack
 -
 queue
 -
-vector
--
 string
 -
-BSTree.hpp
-C:/Users/xterm/CLionProject/TP3CLWindows/BSTree.hpp
+BSTree/BSTree.hpp
+C:/Users/xterm/CLionProject/TP3CLWindows/BSTree/BSTree.hpp
 Folder.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp
 Note.hpp
 C:/Users/xterm/CLionProject/TP3CLWindows/Note.hpp
-Serialization.hpp
-C:/Users/xterm/CLionProject/TP3CLWindows/Serialization.hpp
-iostream
--
+Bonus/Serialization/Serialization.cpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Serialization/Serialization.cpp
+Bonus/Huffman/Huffman.cpp
+C:/Users/xterm/CLionProject/TP3CLWindows/Bonus/Huffman/Huffman.cpp
 
 C:/Users/xterm/CLionProject/TP3CLWindows/Window.hpp
 cmath
