@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TP3"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="BSTest">
+				<Option output="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/BSTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/Optional"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 BSTest"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="BSTest/fast">
+				<Option output="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/BSTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/Optional"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 BSTest/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP3">
+				<Option output="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/TP3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/Optional"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 TP3"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP3/fast">
+				<Option output="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/TP3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/Optional"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 TP3/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/xterm/CLionProject/TP3CLWindows/cmake-build-wsl_profile/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/Folder.hpp">
+			<Option target="TP3"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/MyTests/testFile.cpp">
+			<Option target="BSTest"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/Note.hpp">
+			<Option target="TP3"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/TP3.hpp">
+			<Option target="TP3"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/Window.hpp">
+			<Option target="TP3"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/main.cpp">
+			<Option target="TP3"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/xterm/CLionProject/TP3CLWindows/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
